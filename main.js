@@ -127,6 +127,17 @@
         form.reset();
         submitBtn.disabled = false;
         submitBtn.textContent = lang === 'en' ? 'Send Message' : 'Enviar Mensaje';
+
+        // Send WhatsApp notification to Angela
+        var waMsg = '🔔 New lead from clavepros.com\n\n'
+          + '👤 ' + name + '\n'
+          + '📧 ' + email + '\n'
+          + (phone ? '📱 ' + phone + '\n' : '')
+          + '🏷️ ' + serviceText + '\n'
+          + (message ? '\n💬 ' + message : '');
+        var waURL = 'https://wa.me/12819357568?text=' + encodeURIComponent(waMsg);
+        window.open(waURL, '_blank');
+
         alert(lang === 'en'
           ? 'Thank you! We will contact you shortly.'
           : '¡Gracias! Nos pondremos en contacto contigo pronto.');
