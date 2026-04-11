@@ -295,6 +295,22 @@
     });
   }
 
+  /* ---------- Build Email Checklist HTML ---------- */
+  function buildEmailChecklist(serviceValue) {
+    var data = DOC_DATA[serviceValue];
+    if (!data) return '';
+
+    var en = data.en;
+    var es = data.es;
+    var html = '<div style="background:#F5F7FA;padding:16px;border-radius:8px;margin:16px 0">';
+    html += '<h3 style="color:#003366;margin:0 0 10px;font-size:15px">' + en.title + ' / ' + es.title + '</h3>';
+    for (var i = 0; i < en.docs.length; i++) {
+      html += '<p style="margin:3px 0;font-size:14px">&#10004; ' + en.docs[i] + ' / ' + es.docs[i] + '</p>';
+    }
+    html += '</div>';
+    return html;
+  }
+
   /* ---------- EmailJS Config ---------- */
   var EMAILJS_PUBLIC_KEY = 'Msfzm0psTK4E5BCU6';
   var EMAILJS_SERVICE_ID = 'service_clavepro';
@@ -382,7 +398,8 @@
           emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
             from_name: name,
             email: email,
-            service: serviceText
+            service: serviceText,
+            checklist: buildEmailChecklist(serviceValue)
           }).catch(function (err) {
             console.error('EmailJS error:', err);
           });
