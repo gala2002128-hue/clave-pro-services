@@ -24,6 +24,8 @@
         <a href="services.html" data-en="Services" data-es="Servicios">Servicios</a>
         <a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a>
         <a href="contact.html" data-en="Contact" data-es="Contacto">Contacto</a>
+        <a href="documents.html" data-en="Documents" data-es="Documentos">Documentos</a>
+        <a href="legal.html" data-en="Legal" data-es="Legal">Legal</a>
         <button class="lang-toggle">🇺🇸 EN</button>
       </div>
     </div>
@@ -168,6 +170,64 @@
     </div>
   </section>
 
+  <!-- Government Benefits Assistance -->
+  <section class="service-section">
+    <div class="container">
+      <h2 data-en="🏥 Government Benefits Assistance" data-es="🏥 Asistencia con Beneficios Gubernamentales">🏥 Asistencia con Beneficios Gubernamentales</h2>
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th data-en="Service" data-es="Servicio">Servicio</th>
+            <th data-en="Starting Price" data-es="Precio Inicial">Precio Inicial</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-en="LIS / Medicare Extra Help Application" data-es="Solicitud de LIS / Ayuda Extra de Medicare">Solicitud de LIS / Ayuda Extra de Medicare</td>
+            <td class="price-cell" data-en="From $50" data-es="Desde $50">Desde $50</td>
+          </tr>
+          <tr>
+            <td data-en="Your Texas Benefits Application (SNAP, Medicaid, CHIP)" data-es="Solicitud de Your Texas Benefits (SNAP, Medicaid, CHIP)">Solicitud de Your Texas Benefits (SNAP, Medicaid, CHIP)</td>
+            <td class="price-cell" data-en="From $50" data-es="Desde $50">Desde $50</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="service-note" data-en="* We provide application assistance only. Approval is determined by the relevant government agency." data-es="* Proporcionamos asistencia con la solicitud únicamente. La aprobación es determinada por la agencia gubernamental correspondiente.">* Proporcionamos asistencia con la solicitud únicamente. La aprobación es determinada por la agencia gubernamental correspondiente.</p>
+      <a href="https://wa.me/12819357568" class="btn btn-gold" data-en="Get a Quote" data-es="Pedir Cotización" target="_blank" rel="noopener">Pedir Cotización</a>
+    </div>
+  </section>
+
+  <!-- What to Bring -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="section-title" data-en="What to Bring" data-es="Qué Traer">Qué Traer</h2>
+      <div class="doc-selector-wrapper">
+        <label for="docServiceSelect" class="doc-selector-label" data-en="Select your service to see required documents:" data-es="Selecciona tu servicio para ver los documentos requeridos:">Selecciona tu servicio para ver los documentos requeridos:</label>
+        <select id="docServiceSelect" class="doc-selector">
+          <option value="" data-en="— Choose a service —" data-es="— Elige un servicio —">— Elige un servicio —</option>
+          <option value="tax-individual" data-en="Tax Preparation — Individual" data-es="Preparación de Impuestos — Individual">Preparación de Impuestos — Individual</option>
+          <option value="tax-business" data-en="Tax Preparation — Business" data-es="Preparación de Impuestos — Negocio">Preparación de Impuestos — Negocio</option>
+          <option value="llc" data-en="LLC Formation" data-es="Formación de LLC">Formación de LLC</option>
+          <option value="trucking" data-en="Trucking Compliance (USDOT, TxDMV, IFTA, UCR, NY HUT)" data-es="Cumplimiento de Transporte (USDOT, TxDMV, IFTA, UCR, NY HUT)">Cumplimiento de Transporte (USDOT, TxDMV, IFTA, UCR, NY HUT)</option>
+          <option value="notary" data-en="Notary Services" data-es="Servicios Notariales">Servicios Notariales</option>
+          <option value="immigration" data-en="Immigration Forms" data-es="Formularios de Inmigración">Formularios de Inmigración</option>
+          <option value="lis-medicare" data-en="LIS / Medicare Extra Help" data-es="LIS / Ayuda Extra de Medicare">LIS / Ayuda Extra de Medicare</option>
+          <option value="texas-benefits" data-en="Your Texas Benefits (SNAP/Medicaid/CHIP)" data-es="Your Texas Benefits (SNAP/Medicaid/CHIP)">Your Texas Benefits (SNAP/Medicaid/CHIP)</option>
+        </select>
+      </div>
+
+      <div id="docResults" class="doc-results"></div>
+
+      <div class="doc-note" style="display:none" id="docNote">
+        <p data-en="Don't have all documents? Contact us anyway — we'll help you figure it out." data-es="¿No tiene todos los documentos? Contáctenos de todas formas — le ayudaremos.">¿No tiene todos los documentos? Contáctenos de todas formas — le ayudaremos.</p>
+        <a href="https://wa.me/12819357568" class="btn btn-whatsapp-lg" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -178,6 +238,7 @@
           <a href="services.html" data-en="Services" data-es="Servicios">Servicios</a>
           <a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a>
           <a href="contact.html" data-en="Contact" data-es="Contacto">Contacto</a>
+          <a href="documents.html" data-en="Documents" data-es="Documentos">Documentos</a>
         </div>
         <div class="footer-social">
           <a href="https://wa.me/12819357568" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -185,7 +246,10 @@
           </a>
         </div>
       </div>
-      <div class="footer-bottom" data-en="© 2025 Clave Pro Services · Houston, TX · angela@clavepros.com" data-es="© 2025 Clave Pro Services · Houston, TX · angela@clavepros.com">© 2025 Clave Pro Services · Houston, TX · angela@clavepros.com</div>
+      <div class="footer-bottom">
+        <span data-en="© 2025 Clave Pro Services · Houston, TX · angela@clavepros.com" data-es="© 2025 Clave Pro Services · Houston, TX · angela@clavepros.com">�� 2025 Clave Pro Services · Houston, TX · angela@clavepros.com</span>
+        <br><a href="legal.html" class="footer-legal-link" data-en="Legal Disclaimers &amp; Privacy Policy" data-es="Avisos Legales y Política de Privacidad">Avisos Legales y Política de Privacidad</a>
+      </div>
     </div>
   </footer>
 

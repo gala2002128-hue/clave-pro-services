@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Clave Pro Services</title>
-  <meta name="description" content="Meet Angela Gala — bilingual Tax & Business Specialist in Houston, TX.">
+  <title>Documents — Clave Pro Services</title>
+  <meta name="description" content="Find out what documents to bring for your appointment at Clave Pro Services.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -22,9 +22,9 @@
       <div class="nav-links">
         <a href="index.html" data-en="Home" data-es="Inicio">Inicio</a>
         <a href="services.html" data-en="Services" data-es="Servicios">Servicios</a>
+        <a href="documents.html" data-en="Documents" data-es="Documentos">Documentos</a>
         <a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a>
         <a href="contact.html" data-en="Contact" data-es="Contacto">Contacto</a>
-        <a href="documents.html" data-en="Documents" data-es="Documentos">Documentos</a>
         <a href="legal.html" data-en="Legal" data-es="Legal">Legal</a>
         <button class="lang-toggle">🇺🇸 EN</button>
       </div>
@@ -34,43 +34,37 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1 data-en="Meet Angela Gala" data-es="Conoce a Angela Gala">Conoce a Angela Gala</h1>
-      <p data-en="Tax &amp; Business Specialist · Houston, TX" data-es="Especialista en Impuestos y Negocios · Houston, TX">Especialista en Impuestos y Negocios · Houston, TX</p>
+      <h1 data-en="What to Bring" data-es="Qué Traer">Qué Traer</h1>
+      <p data-en="Select your service to see the required documents for your appointment." data-es="Selecciona tu servicio para ver los documentos requeridos para tu cita.">Selecciona tu servicio para ver los documentos requeridos para tu cita.</p>
     </div>
   </section>
 
-  <!-- Profile -->
+  <!-- Document Requirements -->
   <section class="section">
     <div class="container">
-      <div class="about-profile">
-        <img src="images/angela-gala.png" alt="Angela Gala" class="about-photo-img">
-        <div class="about-text">
-          <p data-en="Angela Gala is a bilingual Tax &amp; Business Specialist based in Houston, TX. With a background in medicine and biomedical sciences (MD and PhD equivalent credentials), Angela brings an exceptional level of precision, analytical thinking, and professionalism to every client interaction." data-es="Angela Gala es una Especialista en Impuestos y Negocios bilingüe con sede en Houston, TX. Con formación en medicina y ciencias biomédicas (equivalente a MD y PhD), Angela aporta un nivel excepcional de precisión, pensamiento analítico y profesionalismo a cada cliente.">Angela Gala es una Especialista en Impuestos y Negocios bilingüe con sede en Houston, TX. Con formación en medicina y ciencias biomédicas (equivalente a MD y PhD), Angela aporta un nivel excepcional de precisión, pensamiento analítico y profesionalismo a cada cliente.</p>
-          <p data-en="IRS Registered Tax Preparer (PTIN), experienced trucking dispatcher, and founder of Clave Pro Services, Angela has helped individuals, families, and business owners navigate the complex world of taxes, business formation, and regulatory compliance — all in English and Spanish." data-es="Preparadora de Impuestos Registrada ante el IRS (PTIN), despachadora de camiones con experiencia, y fundadora de Clave Pro Services, Angela ha ayudado a individuos, familias y dueños de negocios a navegar el complejo mundo de los impuestos, la formación de negocios y el cumplimiento regulatorio — en inglés y español.">Preparadora de Impuestos Registrada ante el IRS (PTIN), despachadora de camiones con experiencia, y fundadora de Clave Pro Services, Angela ha ayudado a individuos, familias y dueños de negocios a navegar el complejo mundo de los impuestos, la formación de negocios y el cumplimiento regulatorio — en inglés y español.</p>
-        </div>
+      <div class="doc-selector-wrapper">
+        <label for="docServiceSelect" class="doc-selector-label" data-en="Select your service to see required documents:" data-es="Selecciona tu servicio para ver los documentos requeridos:">Selecciona tu servicio para ver los documentos requeridos:</label>
+        <select id="docServiceSelect" class="doc-selector">
+          <option value="" data-en="— Choose a service —" data-es="— Elige un servicio —">— Elige un servicio —</option>
+          <option value="tax-individual" data-en="Tax Preparation — Individual" data-es="Preparación de Impuestos — Individual">Preparación de Impuestos — Individual</option>
+          <option value="tax-business" data-en="Tax Preparation — Business" data-es="Preparación de Impuestos — Negocio">Preparación de Impuestos — Negocio</option>
+          <option value="llc" data-en="LLC Formation" data-es="Formación de LLC">Formación de LLC</option>
+          <option value="trucking" data-en="Trucking Compliance (USDOT, TxDMV, IFTA, UCR, NY HUT)" data-es="Cumplimiento de Transporte (USDOT, TxDMV, IFTA, UCR, NY HUT)">Cumplimiento de Transporte (USDOT, TxDMV, IFTA, UCR, NY HUT)</option>
+          <option value="notary" data-en="Notary Services" data-es="Servicios Notariales">Servicios Notariales</option>
+          <option value="immigration" data-en="Immigration Forms" data-es="Formularios de Inmigración">Formularios de Inmigración</option>
+          <option value="lis-medicare" data-en="LIS / Medicare Extra Help" data-es="LIS / Ayuda Extra de Medicare">LIS / Ayuda Extra de Medicare</option>
+          <option value="texas-benefits" data-en="Your Texas Benefits (SNAP/Medicaid/CHIP)" data-es="Your Texas Benefits (SNAP/Medicaid/CHIP)">Your Texas Benefits (SNAP/Medicaid/CHIP)</option>
+        </select>
       </div>
-    </div>
-  </section>
 
-  <!-- Credentials -->
-  <section class="section section-gray">
-    <div class="container">
-      <h2 class="section-title" data-en="Credentials" data-es="Credenciales">Credenciales</h2>
-      <div class="credentials-grid">
-        <div class="credential-box" data-en="🎓 MD Equivalent Credentials" data-es="🎓 Credenciales Equivalentes a MD">🎓 Credenciales Equivalentes a MD</div>
-        <div class="credential-box" data-en="🔬 PhD in Medical Sciences Equivalent" data-es="🔬 Equivalente a PhD en Ciencias Médicas">🔬 Equivalente a PhD en Ciencias Médicas</div>
-        <div class="credential-box" data-en="📋 IRS Registered Tax Preparer (PTIN)" data-es="📋 Preparadora de Impuestos Registrada ante el IRS (PTIN)">📋 Preparadora de Impuestos Registrada ante el IRS (PTIN)</div>
-        <div class="credential-box" data-en="🚛 Trucking Dispatch &amp; Compliance Specialist" data-es="🚛 Especialista en Despacho y Cumplimiento de Transporte">🚛 Especialista en Despacho y Cumplimiento de Transporte</div>
-      </div>
-    </div>
-  </section>
+      <div id="docResults" class="doc-results"></div>
 
-  <!-- Mission -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title" data-en="Our Mission" data-es="Nuestra Misión">Nuestra Misión</h2>
-      <div class="mission-box">
-        <p data-en="Our mission is to be the key that opens the door to financial clarity, business growth, and regulatory compliance for the Hispanic community in Houston and beyond." data-es="Nuestra misión es ser la clave que abre la puerta a la claridad financiera, el crecimiento empresarial y el cumplimiento regulatorio para la comunidad hispana en Houston y más allá.">Nuestra misión es ser la clave que abre la puerta a la claridad financiera, el crecimiento empresarial y el cumplimiento regulatorio para la comunidad hispana en Houston y más allá.</p>
+      <div class="doc-note" style="display:none" id="docNote">
+        <p data-en="Don't have all documents? Contact us anyway — we'll help you figure it out." data-es="¿No tiene todos los documentos? Contáctenos de todas formas — le ayudaremos.">¿No tiene todos los documentos? Contáctenos de todas formas — le ayudaremos.</p>
+        <a href="https://wa.me/12819357568" class="btn btn-whatsapp-lg" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>WhatsApp</span>
+        </a>
       </div>
     </div>
   </section>
@@ -83,9 +77,9 @@
         <div class="footer-links">
           <a href="index.html" data-en="Home" data-es="Inicio">Inicio</a>
           <a href="services.html" data-en="Services" data-es="Servicios">Servicios</a>
+          <a href="documents.html" data-en="Documents" data-es="Documentos">Documentos</a>
           <a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a>
           <a href="contact.html" data-en="Contact" data-es="Contacto">Contacto</a>
-          <a href="documents.html" data-en="Documents" data-es="Documentos">Documentos</a>
         </div>
         <div class="footer-social">
           <a href="https://wa.me/12819357568" target="_blank" rel="noopener" aria-label="WhatsApp">

@@ -1,16 +1,17 @@
 /* ============================================================
    Clave Pro Services — Shared JavaScript
-   Language toggle, hamburger menu, active nav, WhatsApp tooltip
+   Language toggle, hamburger menu, active nav, document selector,
+   contact form with Airtable integration
    ============================================================ */
 
 (function () {
   'use strict';
 
   /* ---------- Language Toggle ---------- */
-  const LANG_KEY = 'clavepro_lang';
+  var LANG_KEY = 'clavepro_lang';
 
   function getStoredLang() {
-    return localStorage.getItem(LANG_KEY) || 'es'; // default Spanish
+    return localStorage.getItem(LANG_KEY) || 'es';
   }
 
   function setLang(lang) {
@@ -27,15 +28,14 @@
       }
     });
 
-    // Update toggle button
     var toggleBtns = document.querySelectorAll('.lang-toggle');
     toggleBtns.forEach(function (btn) {
-      if (lang === 'en') {
-        btn.innerHTML = '🇲🇽 ES';
-      } else {
-        btn.innerHTML = '🇺🇸 EN';
-      }
+      btn.innerHTML = lang === 'en' ? '🇲🇽 ES' : '🇺🇸 EN';
     });
+
+    // Re-render document list if selector is active
+    var sel = document.getElementById('docServiceSelect');
+    if (sel && sel.value) renderDocList(sel.value);
   }
 
   /* ---------- Hamburger Menu ---------- */
@@ -49,7 +49,6 @@
       hamburger.classList.toggle('active');
     });
 
-    // Close menu on link click
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         navLinks.classList.remove('open');
@@ -66,6 +65,233 @@
       if (href === page || (page === '' && href === 'index.html')) {
         a.classList.add('active');
       }
+    });
+  }
+
+  /* ---------- Document Requirements Data ---------- */
+  var DOC_DATA = {
+    'tax-individual': {
+      en: {
+        title: 'Tax Preparation — Individual',
+        docs: [
+          'Valid photo ID (driver\'s license or passport)',
+          'Social Security cards for all household members',
+          'W-2 forms from all employers',
+          '1099 forms (1099-NEC, 1099-MISC, 1099-K if applicable)',
+          '1095-A if you have Marketplace health insurance (Healthcare.gov)',
+          'Last year\'s tax return (if available)',
+          'Bank account information for direct deposit'
+        ]
+      },
+      es: {
+        title: 'Preparación de Impuestos — Individual',
+        docs: [
+          'Identificación con foto válida (licencia de conducir o pasaporte)',
+          'Tarjetas de Seguro Social de todos los miembros del hogar',
+          'Formularios W-2 de todos los empleadores',
+          'Formularios 1099 (1099-NEC, 1099-MISC, 1099-K si aplica)',
+          '1095-A si tiene seguro de salud del Marketplace (Healthcare.gov)',
+          'Declaración del año anterior (si está disponible)',
+          'Información bancaria para depósito directo'
+        ]
+      }
+    },
+    'tax-business': {
+      en: {
+        title: 'Tax Preparation — Business',
+        docs: [
+          'Valid photo ID',
+          'Social Security card or EIN',
+          'All 1099-NEC received from clients',
+          'Business income records or bank statements (all 12 months)',
+          'List of business expenses with receipts',
+          '1099-NEC issued to subcontractors (if applicable)',
+          'Vehicle mileage log for business use',
+          'W-2 of spouse if filing jointly',
+          '1095-A if applicable'
+        ]
+      },
+      es: {
+        title: 'Preparación de Impuestos — Negocio',
+        docs: [
+          'Identificación con foto válida',
+          'Tarjeta de Seguro Social o EIN',
+          'Todos los 1099-NEC recibidos de clientes',
+          'Registros de ingresos del negocio o estados de cuenta (los 12 meses)',
+          'Lista de gastos del negocio con recibos',
+          '1099-NEC emitidos a subcontratistas (si aplica)',
+          'Registro de millas del vehículo de uso comercial',
+          'W-2 del cónyuge si declaran juntos',
+          '1095-A si aplica'
+        ]
+      }
+    },
+    'llc': {
+      en: {
+        title: 'LLC Formation',
+        docs: [
+          'Valid photo ID',
+          'Social Security Number or ITIN',
+          'Desired company name (we\'ll verify availability)',
+          'Business address',
+          'Names and addresses of all members/owners',
+          'Business purpose description'
+        ]
+      },
+      es: {
+        title: 'Formación de LLC',
+        docs: [
+          'Identificación con foto válida',
+          'Número de Seguro Social o ITIN',
+          'Nombre deseado para la empresa (verificaremos disponibilidad)',
+          'Dirección del negocio',
+          'Nombres y direcciones de todos los miembros/dueños',
+          'Descripción del propósito del negocio'
+        ]
+      }
+    },
+    'trucking': {
+      en: {
+        title: 'Trucking Compliance (USDOT, TxDMV, IFTA, UCR, NY HUT)',
+        docs: [
+          'Valid photo ID',
+          'EIN (Federal Employer Identification Number)',
+          'Company name and business address',
+          'Vehicle information: VIN, year, make, model, GVWR for each truck',
+          'Number of trucks in fleet',
+          'Type of cargo transported',
+          'States of operation'
+        ]
+      },
+      es: {
+        title: 'Cumplimiento de Transporte (USDOT, TxDMV, IFTA, UCR, NY HUT)',
+        docs: [
+          'Identificación con foto válida',
+          'EIN (Número de Identificación Federal del Empleador)',
+          'Nombre de la empresa y dirección del negocio',
+          'Información de vehículos: VIN, año, marca, modelo, GVWR de cada camión',
+          'Número de camiones en la flota',
+          'Tipo de carga transportada',
+          'Estados de operación'
+        ]
+      }
+    },
+    'notary': {
+      en: {
+        title: 'Notary Services',
+        docs: [
+          'Valid government-issued photo ID for each person signing',
+          'The document(s) to be notarized (do NOT sign before the appointment)'
+        ]
+      },
+      es: {
+        title: 'Servicios Notariales',
+        docs: [
+          'Identificación con foto emitida por el gobierno para cada firmante',
+          'El/los documento(s) a notarizar (NO firme antes de la cita)'
+        ]
+      }
+    },
+    'immigration': {
+      en: {
+        title: 'Immigration Forms',
+        docs: [
+          'Valid photo ID (passport preferred)',
+          'Current immigration documents (visa, green card, EAD, etc.)',
+          'Previous immigration applications (if any)',
+          'Fee payment receipt (USCIS fees paid separately by client)'
+        ]
+      },
+      es: {
+        title: 'Formularios de Inmigración',
+        docs: [
+          'Identificación con foto válida (pasaporte preferido)',
+          'Documentos de inmigración actuales (visa, tarjeta verde, EAD, etc.)',
+          'Solicitudes de inmigración anteriores (si las hay)',
+          'Recibo de pago de tarifas (tarifas de USCIS pagadas por el cliente)'
+        ]
+      }
+    },
+    'lis-medicare': {
+      en: {
+        title: 'LIS / Medicare Extra Help',
+        docs: [
+          'Medicare card (red, white and blue)',
+          'Social Security card',
+          'Proof of income (Social Security award letter, W-2, or pay stubs)',
+          'Bank statements (last 3 months)',
+          'List of prescription medications'
+        ]
+      },
+      es: {
+        title: 'LIS / Ayuda Extra de Medicare',
+        docs: [
+          'Tarjeta de Medicare (roja, blanca y azul)',
+          'Tarjeta de Seguro Social',
+          'Prueba de ingresos (carta de beneficios del Seguro Social, W-2, o talones de pago)',
+          'Estados de cuenta bancarios (últimos 3 meses)',
+          'Lista de medicamentos recetados'
+        ]
+      }
+    },
+    'texas-benefits': {
+      en: {
+        title: 'Your Texas Benefits (SNAP/Medicaid/CHIP)',
+        docs: [
+          'Valid photo ID for all adults in household',
+          'Social Security cards for all household members',
+          'Proof of income (pay stubs, award letters, self-employment records)',
+          'Proof of residence (utility bill or lease)',
+          'Bank statements (last 3 months)',
+          'Immigration documents (if applicable)'
+        ]
+      },
+      es: {
+        title: 'Your Texas Benefits (SNAP/Medicaid/CHIP)',
+        docs: [
+          'Identificación con foto válida de todos los adultos en el hogar',
+          'Tarjetas de Seguro Social de todos los miembros del hogar',
+          'Prueba de ingresos (talones de pago, cartas de beneficios, registros de trabajo por cuenta propia)',
+          'Prueba de residencia (factura de servicios o contrato de arrendamiento)',
+          'Estados de cuenta bancarios (últimos 3 meses)',
+          'Documentos de inmigración (si aplica)'
+        ]
+      }
+    }
+  };
+
+  function renderDocList(serviceKey) {
+    var container = document.getElementById('docResults');
+    var note = document.getElementById('docNote');
+    if (!container) return;
+
+    var data = DOC_DATA[serviceKey];
+    if (!data) {
+      container.classList.remove('visible');
+      if (note) note.style.display = 'none';
+      return;
+    }
+
+    var lang = getStoredLang();
+    var info = data[lang] || data.en;
+
+    var html = '<div class="doc-list"><h3>' + info.title + '</h3><ul>';
+    info.docs.forEach(function (doc) {
+      html += '<li>' + doc + '</li>';
+    });
+    html += '</ul></div>';
+
+    container.innerHTML = html;
+    container.classList.add('visible');
+    if (note) note.style.display = 'block';
+  }
+
+  function initDocSelector() {
+    var sel = document.getElementById('docServiceSelect');
+    if (!sel) return;
+
+    sel.addEventListener('change', function () {
+      renderDocList(sel.value);
     });
   }
 
@@ -90,26 +316,22 @@
       var serviceText = service.options[service.selectedIndex].getAttribute('data-en') || service.value;
       var message = form.querySelector('[name="message"]').value.trim();
 
-      // Disable button while submitting
       submitBtn.disabled = true;
       submitBtn.textContent = lang === 'en' ? 'Sending...' : 'Enviando...';
 
-      var payload = {
-        records: [{
-          fields: {
-            'Name': name,
-            'E-mail': email,
-            'Phone': phone,
-            'Type of Service': serviceText,
-            'Status': 'New'
-          }
-        }]
+      var fields = {
+        'Name': name,
+        'E-mail': email,
+        'Phone': phone,
+        'Type of Service': serviceText,
+        'Status': 'New'
       };
 
-      // Store message in Notes if field exists, otherwise append to Name
       if (message) {
-        payload.records[0].fields['Name'] = name + ' — ' + message;
+        fields['Notes'] = message;
       }
+
+      var payload = { records: [{ fields: fields }] };
 
       fetch('https://api.airtable.com/v0/' + AIRTABLE_BASE + '/' + AIRTABLE_TABLE, {
         method: 'POST',
@@ -128,6 +350,13 @@
         submitBtn.disabled = false;
         submitBtn.textContent = lang === 'en' ? 'Send Message' : 'Enviar Mensaje';
 
+        // Show success message on page
+        var successDiv = document.getElementById('formSuccess');
+        if (successDiv) {
+          successDiv.style.display = 'block';
+          successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
         // Send WhatsApp notification to Angela
         var waMsg = '🔔 New lead from clavepros.com\n\n'
           + '👤 ' + name + '\n'
@@ -137,10 +366,6 @@
           + (message ? '\n💬 ' + message : '');
         var waURL = 'https://wa.me/12819357568?text=' + encodeURIComponent(waMsg);
         window.open(waURL, '_blank');
-
-        alert(lang === 'en'
-          ? 'Thank you! We will contact you shortly.'
-          : '¡Gracias! Nos pondremos en contacto contigo pronto.');
       })
       .catch(function (err) {
         console.error(err);
@@ -155,7 +380,6 @@
 
   /* ---------- Init ---------- */
   document.addEventListener('DOMContentLoaded', function () {
-    // Language
     var lang = getStoredLang();
     setLang(lang);
 
@@ -170,5 +394,6 @@
     initHamburger();
     setActiveNav();
     initContactForm();
+    initDocSelector();
   });
 })();
