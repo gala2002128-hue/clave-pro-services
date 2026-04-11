@@ -295,7 +295,12 @@
     });
   }
 
-  /* ---------- Contact Form → Airtable ---------- */
+  /* ---------- EmailJS Config ---------- */
+  var EMAILJS_PUBLIC_KEY = 'Msfzm0psTK4E5BCU6';
+  var EMAILJS_SERVICE_ID = 'service_clavepro';
+  var EMAILJS_TEMPLATE_ID = 'template_i2sf26j';
+
+  /* ---------- Contact Form → Airtable + EmailJS ---------- */
   var AIRTABLE_BASE  = 'appZpPihAI3InXMdx';
   var AIRTABLE_TABLE = 'tbl1TjdsA3JgCAfdl';
   var AIRTABLE_TOKEN = 'patnswTAVvjglK3b8.511e3c35ea5640400933c2b00eb454429724ad480c293a60cd91bca9f77df1d7';
@@ -303,6 +308,11 @@
   function initContactForm() {
     var form = document.getElementById('contactForm');
     if (!form) return;
+
+    // Initialize EmailJS
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -333,6 +343,7 @@
 
       var payload = { records: [{ fields: fields }] };
 
+      // 1. Save to Airtable
       fetch('https://api.airtable.com/v0/' + AIRTABLE_BASE + '/' + AIRTABLE_TABLE, {
         method: 'POST',
         headers: {
@@ -346,6 +357,17 @@
         return res.json();
       })
       .then(function () {
+        // 2. Send auto-reply email via EmailJS
+        if (typeof emailjs !== 'undefined') {
+          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+            from_name: name,
+            email: email,
+            service: serviceText
+          }).catch(function (err) {
+            console.error('EmailJS error:', err);
+          });
+        }
+
         form.reset();
         submitBtn.disabled = false;
         submitBtn.textContent = lang === 'en' ? 'Send Message' : 'Enviar Mensaje';
@@ -357,7 +379,7 @@
           successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        // Send WhatsApp notification to Angela
+        // 3. Send WhatsApp notification to Angela
         var waMsg = '🔔 New lead from clavepros.com\n\n'
           + '👤 ' + name + '\n'
           + '📧 ' + email + '\n'
