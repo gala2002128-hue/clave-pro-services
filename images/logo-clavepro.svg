@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560">
+  <rect x="0" y="0" width="1400" height="560" fill="#003366" rx="20"/>
+  <rect x="0" y="0" width="1400" height="10" fill="#C9A84C" rx="4"/>
+  <rect x="0" y="550" width="1400" height="10" fill="#C9A84C" rx="4"/>
+
+  <g transform="translate(210, 280)">
+    <circle cx="0" cy="0" r="160" fill="none" stroke="#C9A84C" stroke-width="5"/>
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.4"/>
+    <circle cx="0" cy="0" r="155" fill="#002244" opacity="0.5"/>
+    <g transform="rotate(-35) translate(0, 8)">
+      <circle cx="0" cy="-55" r="48" fill="none" stroke="#C9A84C" stroke-width="13"/>
+      <circle cx="0" cy="-55" r="26" fill="none" stroke="#C9A84C" stroke-width="7"/>
+      <rect x="-13" y="-6" width="26" height="110" rx="6" fill="#C9A84C"/>
+      <rect x="-13" y="68" width="40" height="18" rx="4" fill="#C9A84C"/>
+      <rect x="-13" y="90" width="32" height="18" rx="4" fill="#C9A84C"/>
+    </g>
+  </g>
+
+  <line x1="420" y1="100" x2="420" y2="460" stroke="#C9A84C" stroke-width="3" opacity="0.35"/>
+
+  <text x="480" y="230" font-family="Georgia, serif" font-size="160" font-weight="700" fill="#FFFFFF" letter-spacing="-2">Clave</text>
+  <text x="910" y="230" font-family="Georgia, serif" font-size="160" font-weight="700" fill="#C9A84C" letter-spacing="-2">Pro</text>
+
+  <line x1="480" y1="258" x2="1340" y2="258" stroke="#C9A84C" stroke-width="3" opacity="0.6"/>
+
+  <text x="480" y="330" font-family="Georgia, serif" font-size="68" font-weight="400" fill="#C9A84C" letter-spacing="28">SERVICES</text>
+
+  <line x1="480" y1="358" x2="1340" y2="358" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
+
+  <text x="480" y="410" font-family="Georgia, serif" font-size="36" fill="#FFFFFF" letter-spacing="2" opacity="0.85" font-style="italic">Your trusted partner · Tu socio de confianza</text>
+
+  <text x="480" y="462" font-family="Arial, sans-serif" font-size="28" fill="#C9A84C" letter-spacing="8" opacity="0.7">TAX · BUSINESS · TRUCKING · NOTARY · BENEFITS</text>
+
+  <text x="480" y="506" font-family="Arial, sans-serif" font-size="26" fill="#C9A84C" letter-spacing="6" opacity="0.5">HOUSTON, TEXAS</text>
+</svg>
