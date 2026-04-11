@@ -446,6 +446,24 @@ ul { list-style: none; }
   font-size: 1.02rem;
 }
 
+/* ---------- Form CTA ---------- */
+.form-cta {
+  background: #F5F7FA;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #C9A84C;
+  margin-bottom: 1.5rem;
+}
+.form-cta h3 {
+  font-size: 1.2rem;
+  margin-bottom: .4rem;
+}
+.form-cta p {
+  font-size: .95rem;
+  color: #555;
+  margin: 0;
+}
+
 /* ---------- Success Message ---------- */
 .form-success {
   background: #003366;
