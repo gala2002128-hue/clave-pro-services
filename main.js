@@ -400,12 +400,12 @@
         }
 
         // 3. Send WhatsApp notification to Angela
-        var waMsg = '🔔 New lead from clavepros.com\n\n'
-          + '👤 ' + name + '\n'
-          + '📧 ' + email + '\n'
-          + (phone ? '📱 ' + phone + '\n' : '')
-          + '🏷️ ' + serviceText + '\n'
-          + (message ? '\n💬 ' + message : '');
+        var waMsg = 'New lead from clavepros.com\n\n'
+          + 'Name: ' + name + '\n'
+          + 'Email: ' + email + '\n'
+          + (phone ? 'Phone: ' + phone + '\n' : '')
+          + 'Service: ' + serviceText + '\n'
+          + (message ? '\nMessage: ' + message : '');
         var waURL = 'https://wa.me/12819357568?text=' + encodeURIComponent(waMsg);
         window.open(waURL, '_blank');
       })
