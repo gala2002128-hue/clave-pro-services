@@ -323,8 +323,28 @@
       var email   = form.querySelector('[name="email"]').value.trim();
       var phone   = form.querySelector('[name="phone"]').value.trim();
       var service = form.querySelector('[name="service"]');
-      var serviceText = service.options[service.selectedIndex].getAttribute('data-en') || service.value;
+      var serviceValue = service.value;
       var message = form.querySelector('[name="message"]').value.trim();
+
+      // Map form values to exact Airtable option names
+      var SERVICE_MAP = {
+        'tax-individual': 'Tax Preparation - Individual',
+        'tax-business': 'Tax Preparation - Business',
+        'llc': 'LLC Formation',
+        'ein': 'EIN Registration',
+        'dba': 'DBA Registration',
+        'ifta': 'IFTA Registration / Filing',
+        'nyhut': 'NY HUT Registration',
+        'ucr': 'UCR Registration',
+        'fmcsa': 'FMCSA / MC Authority',
+        'boc3': 'BOC-3 Filing',
+        'notary': 'Notary Services',
+        'immigration': 'Immigration Forms',
+        'lis-medicare': 'LIS / Medicare Extra Help',
+        'texas-benefits': 'Your Texas Benefits (SNAP, Medicaid, CHIP)',
+        'other': 'Other'
+      };
+      var serviceText = SERVICE_MAP[serviceValue] || 'Other';
 
       submitBtn.disabled = true;
       submitBtn.textContent = lang === 'en' ? 'Sending...' : 'Enviando...';
@@ -333,7 +353,7 @@
         'Name': name,
         'E-mail': email,
         'Phone': phone,
-        'Type of Service': serviceText,
+        'Type of Service': [serviceText],
         'Status': 'New'
       };
 
