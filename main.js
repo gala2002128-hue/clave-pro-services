@@ -296,8 +296,20 @@
   }
 
   /* ---------- Build Email Checklist HTML ---------- */
+  // Map sub-services to their parent DOC_DATA key
+  var SERVICE_DOC_MAP = {
+    'ein': 'llc',
+    'dba': 'llc',
+    'ifta': 'trucking',
+    'nyhut': 'trucking',
+    'ucr': 'trucking',
+    'fmcsa': 'trucking',
+    'boc3': 'trucking'
+  };
+
   function buildEmailChecklist(serviceValue) {
-    var data = DOC_DATA[serviceValue];
+    var key = SERVICE_DOC_MAP[serviceValue] || serviceValue;
+    var data = DOC_DATA[key];
     if (!data) return '';
 
     var en = data.en;
