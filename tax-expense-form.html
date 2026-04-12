@@ -305,6 +305,45 @@
 
     .tef-print-footer { display: none; }
 
+    /* Legal notice banner */
+    .tef-legal-notice {
+      background: #FFF8E1;
+      border: 1px solid var(--gold);
+      border-left: 5px solid var(--gold);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      color: var(--navy);
+      font-size: .85rem;
+      line-height: 1.5;
+    }
+    .tef-legal-notice strong { display: block; margin-bottom: 4px; font-size: .92rem; }
+    .tef-legal-notice .es { display: block; font-style: italic; color: #5A4A1F; margin-top: 6px; }
+
+    /* Watermark — semi-transparent logo behind the form */
+    .tef-form { position: relative; }
+    .tef-form::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('images/logo-clavepro.svg');
+      background-repeat: repeat;
+      background-size: 280px;
+      background-position: center;
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .tef-section { position: relative; z-index: 1; }
+
+    /* Copyright strip in header */
+    .tef-copyright {
+      font-size: .72rem;
+      color: var(--muted);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
     @media (max-width: 720px) {
       .tef-grid, .tef-grid-3 { grid-template-columns: 1fr; }
       .tef-money-row, .tef-money-row.with-pct, .tef-money-row.with-platform { grid-template-columns: 1fr; }
@@ -328,6 +367,19 @@
         padding: 14px 18px;
       }
       .tef-form { box-shadow: none; border: 1px solid #999; }
+      .tef-form::before {
+        opacity: 0.07 !important;
+        background-size: 240px !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .tef-legal-notice {
+        background: #FFF8E1 !important;
+        border: 1px solid var(--gold) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-inside: avoid;
+      }
       .tef-section { page-break-inside: avoid; }
       .tef-section-header {
         background: var(--navy) !important;
@@ -401,7 +453,17 @@
         <div class="tef-header-text">
           <h1 data-en="Business Tax Expense Form" data-es="Formulario de Gastos de Negocio">Formulario de Gastos de Negocio</h1>
           <p data-en="Please complete every section that applies to your business. Your data is auto-saved in your browser." data-es="Por favor complete cada sección que aplique a su negocio. Sus datos se guardan automáticamente en su navegador.">Por favor complete cada sección que aplique a su negocio. Sus datos se guardan automáticamente en su navegador.</p>
+          <div class="tef-copyright" data-en="© 2025 Clave Pro Services — Proprietary form. Authorized for ClavePro clients only." data-es="© 2025 Clave Pro Services — Formulario propietario. Autorizado solo para clientes de ClavePro.">© 2025 Clave Pro Services — Formulario propietario. Autorizado solo para clientes de ClavePro.</div>
         </div>
+      </div>
+
+      <!-- Legal notice -->
+      <div class="tef-legal-notice">
+        <strong data-en="⚠ Proprietary &amp; Confidential" data-es="⚠ Propiedad y Confidencialidad">⚠ Propiedad y Confidencialidad</strong>
+        <span data-en="This form is the intellectual property of Clave Pro Services and is provided exclusively for the use of its clients. Unauthorized reproduction, distribution, modification, or use by any other business or individual is strictly prohibited and may result in legal action."
+              data-es="Este formulario es propiedad intelectual de Clave Pro Services y se proporciona exclusivamente para el uso de sus clientes. La reproducción, distribución, modificación o uso no autorizado por cualquier otro negocio o individuo está estrictamente prohibido y puede resultar en acción legal.">Este formulario es propiedad intelectual de Clave Pro Services y se proporciona exclusivamente para el uso de sus clientes. La reproducción, distribución, modificación o uso no autorizado por cualquier otro negocio o individuo está estrictamente prohibido y puede resultar en acción legal.</span>
+        <span class="es" data-en="This form is the intellectual property of Clave Pro Services and is provided exclusively for the use of its clients. Unauthorized reproduction, distribution, modification, or use by any other business or individual is strictly prohibited and may result in legal action."
+              data-es="Este formulario es propiedad intelectual de Clave Pro Services y se proporciona exclusivamente para el uso de sus clientes. La reproducción, distribución, modificación o uso no autorizado por cualquier otro negocio o individuo está estrictamente prohibido y puede resultar en acción legal."></span>
       </div>
 
       <!-- Top actions -->
@@ -864,7 +926,8 @@
       </form>
 
       <div class="tef-print-footer">
-        ClavePro Services | angela@clavepros.com | (281) 935-7568 | clavepros.com
+        ClavePro Services | angela@clavepros.com | (281) 935-7568 | clavepros.com<br>
+        © 2025 Clave Pro Services — Proprietary form. Unauthorized use prohibited. / Formulario propietario. Uso no autorizado prohibido.
       </div>
 
     </div>
