@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Tax Expense Form — Clave Pro Services</title>
+  <meta name="description" content="Bilingual Business Tax Expense Form for self-employed and small business owners.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ===== Tax Expense Form Styles ===== */
+    :root {
+      --navy: #003366;
+      --gold: #C9A84C;
+      --white: #FFFFFF;
+      --gray-bg: #F5F7FA;
+      --border: #D5DCE5;
+      --text: #1F2937;
+      --muted: #6B7280;
+    }
+
+    .tef-wrap {
+      background: #EEF2F7;
+      padding: 40px 0 60px;
+    }
+    .tef-container {
+      width: 92%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .tef-header {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px 32px;
+      box-shadow: 0 4px 16px rgba(0,51,102,.08);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .tef-header img { width: 90px; height: auto; }
+    .tef-header-text h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--navy);
+      font-size: 1.7rem;
+      margin: 0 0 4px;
+    }
+    .tef-header-text p {
+      color: var(--muted);
+      margin: 0;
+      font-style: italic;
+      font-size: .95rem;
+    }
+    .tef-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      justify-content: flex-end;
+    }
+    .tef-btn {
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: .95rem;
+      font-family: inherit;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .tef-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,51,102,.2); }
+    .tef-btn-gold { background: var(--gold); color: var(--navy); }
+    .tef-btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+    .tef-btn-danger { background: #B91C1C; color: #fff; }
+
+    .tef-form {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,51,102,.08);
+      overflow: hidden;
+    }
+    .tef-section { border-bottom: 1px solid var(--border); }
+    .tef-section:last-child { border-bottom: none; }
+    .tef-section-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .tef-section-header .num {
+      background: var(--gold);
+      color: var(--navy);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .tef-section-header h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .tef-section-header h2 .es {
+      display: block;
+      font-size: .82rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .tef-section-body {
+      padding: 24px;
+    }
+
+    .tef-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 22px;
+    }
+    .tef-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .tef-full { grid-column: 1 / -1; }
+
+    .tef-field { display: flex; flex-direction: column; }
+    .tef-field label {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .tef-field label .es {
+      display: block;
+      font-size: .78rem;
+      font-weight: 400;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .tef-field input,
+    .tef-field select,
+    .tef-field textarea {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: .95rem;
+      font-family: inherit;
+      color: var(--text);
+      background: #fff;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .tef-field input:focus,
+    .tef-field select:focus,
+    .tef-field textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,.18);
+    }
+    .tef-field textarea { min-height: 90px; resize: vertical; }
+    .tef-field .req { color: #B91C1C; }
+
+    .tef-note {
+      font-size: .8rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    .tef-money-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 12px;
+      align-items: end;
+    }
+    .tef-money-row.with-pct { grid-template-columns: 2fr 1fr 90px; }
+    .tef-money-row.with-platform { grid-template-columns: 2fr 1.4fr 1fr; }
+
+    .tef-radio-group {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 6px 0;
+    }
+    .tef-radio-group label {
+      font-weight: 400;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .tef-radio-group input[type="radio"] { accent-color: var(--navy); }
+
+    .tef-total-bar {
+      margin-top: 18px;
+      background: var(--gray-bg);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+    .tef-total-bar .total-value { color: var(--navy); font-size: 1.3rem; }
+
+    .tef-calc-out {
+      background: var(--gray-bg);
+      border-left: 4px solid var(--gold);
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-size: .9rem;
+      color: var(--navy);
+      margin-top: 10px;
+    }
+    .tef-calc-out strong { font-size: 1.05rem; }
+
+    /* Subcontractor table */
+    .tef-sub-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+    }
+    .tef-sub-table th,
+    .tef-sub-table td {
+      border: 1px solid var(--border);
+      padding: 6px;
+      text-align: left;
+      font-size: .85rem;
+    }
+    .tef-sub-table th {
+      background: var(--gray-bg);
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .tef-sub-table th .es {
+      display: block;
+      font-size: .72rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--muted);
+    }
+    .tef-sub-table input,
+    .tef-sub-table select {
+      width: 100%;
+      border: none;
+      padding: 6px;
+      font-size: .85rem;
+      font-family: inherit;
+      background: transparent;
+    }
+    .tef-sub-table input:focus, .tef-sub-table select:focus {
+      outline: 1px solid var(--gold);
+      background: #FFFBF0;
+    }
+    .tef-sub-table .col-del { width: 36px; text-align: center; }
+    .tef-sub-table .del-row {
+      background: transparent;
+      border: none;
+      color: #B91C1C;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .tef-checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px;
+      background: var(--gray-bg);
+      border-radius: 6px;
+    }
+    .tef-checkbox-row input { margin-top: 4px; accent-color: var(--navy); }
+    .tef-checkbox-row label {
+      font-size: .88rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .tef-checkbox-row label .es {
+      display: block;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .tef-status {
+      margin: 16px 0;
+      padding: 12px 16px;
+      border-radius: 6px;
+      display: none;
+      font-weight: 500;
+    }
+    .tef-status.ok { display: block; background: #DCFCE7; color: #166534; border: 1px solid #86EFAC; }
+    .tef-status.err { display: block; background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
+
+    .tef-print-footer { display: none; }
+
+    @media (max-width: 720px) {
+      .tef-grid, .tef-grid-3 { grid-template-columns: 1fr; }
+      .tef-money-row, .tef-money-row.with-pct, .tef-money-row.with-platform { grid-template-columns: 1fr; }
+      .tef-header { flex-direction: column; text-align: center; }
+      .tef-actions { justify-content: center; }
+      .tef-sub-table { font-size: .75rem; display: block; overflow-x: auto; }
+    }
+
+    /* ===== Print Styles ===== */
+    @media print {
+      @page { margin: 0.5in; size: letter; }
+      body { background: #fff !important; font-size: 11pt; }
+      .navbar, .footer, .whatsapp-float, .tef-actions, .del-row,
+      .tef-btn, #addSubBtn, .tef-status { display: none !important; }
+      .tef-wrap { background: #fff; padding: 0; }
+      .tef-header {
+        box-shadow: none;
+        border: 2px solid var(--navy);
+        page-break-after: avoid;
+        margin-bottom: 12px;
+        padding: 14px 18px;
+      }
+      .tef-form { box-shadow: none; border: 1px solid #999; }
+      .tef-section { page-break-inside: avoid; }
+      .tef-section-header {
+        background: var(--navy) !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .tef-section-header .num {
+        background: var(--gold) !important;
+        color: var(--navy) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .tef-section-header h2 .es { color: var(--gold) !important; }
+      .tef-field input,
+      .tef-field select,
+      .tef-field textarea {
+        border: none;
+        border-bottom: 1px solid #555;
+        border-radius: 0;
+        padding: 4px 2px;
+      }
+      .tef-field textarea { border: 1px solid #999; }
+      .tef-total-bar, .tef-calc-out, .tef-checkbox-row {
+        background: #F5F7FA !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .tef-sub-table input { border-bottom: 1px solid #999; }
+      .tef-print-footer {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 9pt;
+        color: var(--navy);
+        border-top: 1px solid var(--gold);
+        padding-top: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo"><img src="images/logo-clavepro.svg" alt="Clave Pro Services" class="navbar-logo"></a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html" data-en="Home" data-es="Inicio">Inicio</a>
+        <a href="services.html" data-en="Services" data-es="Servicios">Servicios</a>
+        <a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a>
+        <a href="contact.html" data-en="Contact" data-es="Contacto">Contacto</a>
+        <a href="documents.html" data-en="Documents" data-es="Documentos">Documentos</a>
+        <a href="tax-expense-form.html" data-en="Business Tax Form" data-es="Formulario de Impuestos">Formulario de Impuestos</a>
+        <a href="legal.html" data-en="Legal" data-es="Legal">Legal</a>
+        <button class="lang-toggle">🇺🇸 EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="tef-wrap">
+    <div class="tef-container">
+
+      <!-- Header -->
+      <div class="tef-header">
+        <img src="images/logo-clavepro.svg" alt="Clave Pro Services">
+        <div class="tef-header-text">
+          <h1 data-en="Business Tax Expense Form" data-es="Formulario de Gastos de Negocio">Formulario de Gastos de Negocio</h1>
+          <p data-en="Please complete every section that applies to your business. Your data is auto-saved in your browser." data-es="Por favor complete cada sección que aplique a su negocio. Sus datos se guardan automáticamente en su navegador.">Por favor complete cada sección que aplique a su negocio. Sus datos se guardan automáticamente en su navegador.</p>
+        </div>
+      </div>
+
+      <!-- Top actions -->
+      <div class="tef-actions">
+        <button type="button" class="tef-btn tef-btn-gold" onclick="window.print()" data-en="📄 Download / Print PDF" data-es="📄 Descargar / Imprimir PDF">📄 Descargar / Imprimir PDF</button>
+        <button type="button" class="tef-btn tef-btn-outline" id="clearBtn" data-en="🗑 Clear Form" data-es="🗑 Borrar Formulario">🗑 Borrar Formulario</button>
+      </div>
+
+      <div id="formStatus" class="tef-status"></div>
+
+      <form id="taxExpenseForm" class="tef-form" autocomplete="off">
+
+        <!-- ===== SECTION 1 ===== -->
+        <section class="tef-section">
+          <div class="tef-section-header">
+            <span class="num">1</span>
+            <h2 data-en="Business Information" data-es="Información del Negocio">Información del Negocio
+              <span class="es" data-en="Business Information" data-es="Información del Negocio"></span>
+            </h2>
+          </div>
+          <div class="tef-section-body">
+            <div class="tef-grid">
+
+              <div class="tef-field">
+                <label>
+                  <span data-en="Business Name" data-es="Nombre del Negocio">Nombre del Negocio</span> <span class="req">*</span>
+                  <span class="es" data-en="Business Name" data-es="Nombre del Negocio"></span>
+                </label>
+                <input type="text" name="businessName" required>
+              </div>
+
+              <div class="tef-field">
+                <label>
+                  <span data-en="Owner Name" data-es="Nombre del Dueño">Nombre del Dueño</span> <span class="req">*</span>
+                  <span class="es" data-en="Owner Name" data-es="Nombre del Dueño"></span>
+                </label>
+                <input type="text" name="ownerName" required>
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Email" data-es="Correo Electrónico">Correo Electrónico</span>
+                  <span class="es" data-en="Email" data-es="Correo Electrónico"></span>
+                </label>
+                <input type="email" name="email">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Phone" data-es="Teléfono">Teléfono</span>
+                  <span class="es" data-en="Phone" data-es="Teléfono"></span>
+                </label>
+                <input type="tel" name="phone">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="EIN or SSN" data-es="EIN o Número de Seguro Social">EIN o Número de Seguro Social</span>
+                  <span class="es" data-en="EIN or SSN" data-es="EIN o Número de Seguro Social"></span>
+                </label>
+                <input type="text" name="einSsn">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Business Type" data-es="Tipo de Negocio">Tipo de Negocio</span>
+                  <span class="es" data-en="Business Type" data-es="Tipo de Negocio"></span>
+                </label>
+                <select name="businessType">
+                  <option value="">—</option>
+                  <option value="Sole Proprietor">Sole Proprietor</option>
+                  <option value="LLC">LLC</option>
+                  <option value="S-Corp">S-Corp</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Tax Year" data-es="Año Fiscal">Año Fiscal</span> <span class="req">*</span>
+                  <span class="es" data-en="Tax Year" data-es="Año Fiscal"></span>
+                </label>
+                <select name="taxYear" required>
+                  <option value="">—</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                </select>
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Primary Business Activity" data-es="Actividad Principal del Negocio">Actividad Principal del Negocio</span>
+                  <span class="es" data-en="Primary Business Activity" data-es="Actividad Principal del Negocio"></span>
+                </label>
+                <input type="text" name="businessActivity">
+              </div>
+
+              <div class="tef-field tef-full">
+                <label><span data-en="Business Address" data-es="Dirección del Negocio">Dirección del Negocio</span>
+                  <span class="es" data-en="Business Address" data-es="Dirección del Negocio"></span>
+                </label>
+                <input type="text" name="businessAddress">
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 2 ===== -->
+        <section class="tef-section">
+          <div class="tef-section-header">
+            <span class="num">2</span>
+            <h2 data-en="Income" data-es="Ingresos">Ingresos
+              <span class="es" data-en="Income" data-es="Ingresos"></span>
+            </h2>
+          </div>
+          <div class="tef-section-body">
+            <div class="tef-grid">
+
+              <div class="tef-field">
+                <label><span data-en="Total Gross Income" data-es="Ingresos Brutos Totales">Ingresos Brutos Totales</span> ($)
+                  <span class="es" data-en="Total Gross Income" data-es="Ingresos Brutos Totales"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="grossIncome" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="1099-NEC received — How many?" data-es="¿Cuántos 1099-NEC recibió?">¿Cuántos 1099-NEC recibió?</span>
+                  <span class="es" data-en="1099-NEC received — How many?" data-es="¿Cuántos 1099-NEC recibió?"></span>
+                </label>
+                <input type="number" min="0" step="1" name="nec1099Count">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Total amount on all 1099-NEC" data-es="Total en todos los 1099-NEC">Total en todos los 1099-NEC</span> ($)
+                  <span class="es" data-en="Total amount on all 1099-NEC" data-es="Total en todos los 1099-NEC"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="nec1099Total" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Other income not on 1099" data-es="Otros ingresos no en 1099">Otros ingresos no en 1099</span> ($)
+                  <span class="es" data-en="Other income not on 1099" data-es="Otros ingresos no en 1099"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="otherIncome" class="money">
+              </div>
+
+              <div class="tef-field tef-full">
+                <label><span data-en="Notes" data-es="Notas">Notas</span>
+                  <span class="es" data-en="Notes" data-es="Notas"></span>
+                </label>
+                <textarea name="incomeNotes"></textarea>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 3 ===== -->
+        <section class="tef-section">
+          <div class="tef-section-header">
+            <span class="num">3</span>
+            <h2 data-en="Business Expenses" data-es="Gastos del Negocio">Gastos del Negocio
+              <span class="es" data-en="Business Expenses" data-es="Gastos del Negocio"></span>
+            </h2>
+          </div>
+          <div class="tef-section-body">
+            <div id="expenseList"></div>
+
+            <div class="tef-field" style="margin-top:18px">
+              <label><span data-en="Other Expenses (itemized list)" data-es="Otros Gastos (lista detallada)">Otros Gastos (lista detallada)</span>
+                <span class="es" data-en="Other Expenses (itemized list)" data-es="Otros Gastos (lista detallada)"></span>
+              </label>
+              <textarea name="otherExpenses" rows="4"></textarea>
+            </div>
+
+            <div class="tef-total-bar">
+              <span data-en="TOTAL EXPENSES / TOTAL GASTOS" data-es="TOTAL GASTOS / TOTAL EXPENSES">TOTAL GASTOS / TOTAL EXPENSES</span>
+              <span class="total-value" id="totalExpensesOut">$0.00</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 4 ===== -->
+        <section class="tef-section">
+          <div class="tef-section-header">
+            <span class="num">4</span>
+            <h2 data-en="Vehicle" data-es="Vehículo">Vehículo
+              <span class="es" data-en="Vehicle" data-es="Vehículo"></span>
+            </h2>
+          </div>
+          <div class="tef-section-body">
+            <div class="tef-grid">
+
+              <div class="tef-field tef-full">
+                <label><span data-en="Vehicle Year, Make, Model" data-es="Año, Marca, Modelo del Vehículo">Año, Marca, Modelo del Vehículo</span>
+                  <span class="es" data-en="Vehicle Year, Make, Model" data-es="Año, Marca, Modelo del Vehículo"></span>
+                </label>
+                <input type="text" name="vehicleYMM">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Date placed in service" data-es="Fecha en que comenzó a usarse para el negocio">Fecha en que comenzó a usarse para el negocio</span>
+                  <span class="es" data-en="Date placed in service" data-es="Fecha en que comenzó a usarse"></span>
+                </label>
+                <input type="date" name="vehicleDate">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Total miles driven in tax year" data-es="Millas totales conducidas en el año">Millas totales conducidas en el año</span>
+                  <span class="es" data-en="Total miles driven" data-es="Millas totales"></span>
+                </label>
+                <input type="number" min="0" step="1" name="totalMiles" id="totalMiles">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Business miles" data-es="Millas de negocio">Millas de negocio</span>
+                  <span class="es" data-en="Business miles" data-es="Millas de negocio"></span>
+                </label>
+                <input type="number" min="0" step="1" name="businessMiles" id="businessMiles">
+              </div>
+
+              <div class="tef-field tef-full">
+                <div class="tef-calc-out">
+                  <span data-en="Business use percentage" data-es="Porcentaje de uso de negocio">Porcentaje de uso de negocio</span>:
+                  <strong id="vehiclePctOut">0%</strong>
+                </div>
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Gasoline & Fuel" data-es="Gasolina y Combustible">Gasolina y Combustible</span> ($)
+                  <span class="es" data-en="Gasoline & Fuel" data-es="Gasolina y Combustible"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="vehGas" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Oil changes & Maintenance" data-es="Cambios de aceite y Mantenimiento">Cambios de aceite y Mantenimiento</span> ($)
+                  <span class="es" data-en="Oil changes & Maintenance" data-es="Cambios de aceite y Mantenimiento"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="vehOil" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Repairs" data-es="Reparaciones">Reparaciones</span> ($)
+                  <span class="es" data-en="Repairs" data-es="Reparaciones"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="vehRepairs" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Insurance" data-es="Seguro del Vehículo">Seguro del Vehículo</span> ($)
+                  <span class="es" data-en="Insurance" data-es="Seguro del Vehículo"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="vehInsurance" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Registration & Tags" data-es="Registro y Placas">Registro y Placas</span> ($)
+                  <span class="es" data-en="Registration & Tags" data-es="Registro y Placas"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="vehReg" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Loan interest (business portion)" data-es="Interés del préstamo (porción de negocio)">Interés del préstamo (porción de negocio)</span> ($)
+                  <span class="es" data-en="Loan interest (business portion)" data-es="Interés del préstamo (porción de negocio)"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="vehLoan" class="money">
+              </div>
+
+              <div class="tef-field tef-full">
+                <label><span data-en="Standard Mileage Rate or Actual Expenses?" data-es="¿Tasa Estándar de Millaje o Gastos Reales?">¿Tasa Estándar de Millaje o Gastos Reales?</span>
+                  <span class="es" data-en="Standard Mileage Rate or Actual Expenses?" data-es="¿Tasa Estándar o Gastos Reales?"></span>
+                </label>
+                <div class="tef-radio-group">
+                  <label><input type="radio" name="mileageMethod" value="standard"> <span data-en="Standard Mileage Rate ($0.70/mile)" data-es="Tasa Estándar de Millaje ($0.70/milla)">Tasa Estándar de Millaje ($0.70/milla)</span></label>
+                  <label><input type="radio" name="mileageMethod" value="actual"> <span data-en="Actual Expenses" data-es="Gastos Reales">Gastos Reales</span></label>
+                </div>
+                <div class="tef-calc-out" id="mileageDeductionBox" style="display:none">
+                  <span data-en="Estimated Standard Mileage Deduction" data-es="Deducción Estimada por Millaje Estándar">Deducción Estimada por Millaje Estándar</span>:
+                  <strong id="mileageDeductionOut">$0.00</strong>
+                </div>
+              </div>
+
+              <div class="tef-field tef-full">
+                <label><span data-en="Notes" data-es="Notas">Notas</span>
+                  <span class="es" data-en="Notes" data-es="Notas"></span>
+                </label>
+                <textarea name="vehicleNotes"></textarea>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 5 ===== -->
+        <section class="tef-section">
+          <div class="tef-section-header">
+            <span class="num">5</span>
+            <h2 data-en="Home Office" data-es="Oficina en Casa">Oficina en Casa
+              <span class="es" data-en="Home Office" data-es="Oficina en Casa"></span>
+            </h2>
+          </div>
+          <div class="tef-section-body">
+            <div class="tef-grid">
+
+              <div class="tef-field tef-full">
+                <label><span data-en="Do you use part of your home exclusively for business?" data-es="¿Usa parte de su hogar exclusivamente para su negocio?">¿Usa parte de su hogar exclusivamente para su negocio?</span>
+                  <span class="es" data-en="Do you use part of your home exclusively for business?" data-es="¿Usa parte de su hogar exclusivamente para su negocio?"></span>
+                </label>
+                <div class="tef-radio-group">
+                  <label><input type="radio" name="homeOfficeUse" value="yes"> <span data-en="Yes" data-es="Sí">Sí</span></label>
+                  <label><input type="radio" name="homeOfficeUse" value="no"> <span data-en="No" data-es="No">No</span></label>
+                </div>
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Total square footage of home" data-es="Pies cuadrados totales del hogar">Pies cuadrados totales del hogar</span>
+                  <span class="es" data-en="Total square footage of home" data-es="Pies cuadrados totales del hogar"></span>
+                </label>
+                <input type="number" min="0" step="1" name="homeTotalSqft" id="homeTotalSqft">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Square footage used for office" data-es="Pies cuadrados de la oficina">Pies cuadrados de la oficina</span>
+                  <span class="es" data-en="Square footage used for office" data-es="Pies cuadrados de la oficina"></span>
+                </label>
+                <input type="number" min="0" step="1" name="homeOfficeSqft" id="homeOfficeSqft">
+              </div>
+
+              <div class="tef-field tef-full">
+                <div class="tef-calc-out">
+                  <span data-en="Business use percentage" data-es="Porcentaje de uso de negocio">Porcentaje de uso de negocio</span>:
+                  <strong id="homePctOut">0%</strong>
+                </div>
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Monthly Rent or Mortgage" data-es="Renta o Hipoteca Mensual">Renta o Hipoteca Mensual</span> ($)
+                  <span class="es" data-en="Monthly Rent or Mortgage" data-es="Renta o Hipoteca Mensual"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="homeRent" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Monthly Utilities (electric, gas, internet)" data-es="Servicios Públicos Mensuales (luz, gas, internet)">Servicios Públicos Mensuales</span> ($)
+                  <span class="es" data-en="Monthly Utilities" data-es="Servicios Públicos Mensuales"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="homeUtilities" class="money">
+              </div>
+
+              <div class="tef-field">
+                <label><span data-en="Home Insurance" data-es="Seguro del Hogar">Seguro del Hogar</span> ($)
+                  <span class="es" data-en="Home Insurance" data-es="Seguro del Hogar"></span>
+                </label>
+                <input type="number" step="0.01" min="0" name="homeInsurance" class="money">
+              </div>
+
+              <div class="tef-field tef-full">
+                <label><span data-en="Notes" data-es="Notas">Notas</span>
+                  <span class="es" data-en="Notes" data-es="Notas"></span>
+                </label>
+                <textarea name="homeNotes"></textarea>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 6 ===== -->
+        <section class="tef-section">
+          <div class="tef-section-header">
+            <span class="num">6</span>
+            <h2 data-en="Subcontractors" data-es="Subcontratados">Subcontratados
+              <span class="es" data-en="Subcontractors" data-es="Subcontratados"></span>
+            </h2>
+          </div>
+          <div class="tef-section-body">
+            <table class="tef-sub-table">
+              <thead>
+                <tr>
+                  <th><span data-en="Name" data-es="Nombre">Nombre</span><span class="es" data-en="Name" data-es="Nombre"></span></th>
+                  <th><span data-en="SSN or EIN" data-es="SSN o EIN">SSN o EIN</span><span class="es" data-en="SSN or EIN" data-es="SSN o EIN"></span></th>
+                  <th><span data-en="Service" data-es="Servicio">Servicio</span><span class="es" data-en="Service" data-es="Servicio"></span></th>
+                  <th><span data-en="Total Paid ($)" data-es="Total Pagado ($)">Total Pagado ($)</span><span class="es" data-en="Total Paid" data-es="Total Pagado"></span></th>
+                  <th><span data-en="1099-NEC issued?" data-es="¿1099-NEC emitido?">¿1099-NEC emitido?</span><span class="es" data-en="1099-NEC issued?" data-es="¿1099-NEC emitido?"></span></th>
+                  <th class="col-del"></th>
+                </tr>
+              </thead>
+              <tbody id="subBody"></tbody>
+            </table>
+            <button type="button" class="tef-btn tef-btn-outline" id="addSubBtn" data-en="+ Add Subcontractor" data-es="+ Agregar Subcontratado">+ Agregar Subcontratado</button>
+
+            <div class="tef-field" style="margin-top:16px">
+              <label><span data-en="Notes" data-es="Notas">Notas</span>
+                <span class="es" data-en="Notes" data-es="Notas"></span>
+              </label>
+              <textarea name="subNotes"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 7 ===== -->
+        <section class="tef-section">
+          <div class="tef-section-header">
+            <span class="num">7</span>
+            <h2 data-en="Additional Notes" data-es="Notas Adicionales">Notas Adicionales
+              <span class="es" data-en="Additional Notes" data-es="Notas Adicionales"></span>
+            </h2>
+          </div>
+          <div class="tef-section-body">
+            <div class="tef-field">
+              <label data-en="Use this space for any additional expenses, special situations, or information you would like your tax preparer to know."
+                     data-es="Use este espacio para gastos adicionales, situaciones especiales, o cualquier información que desee que su preparadora de impuestos sepa.">
+                Use este espacio para gastos adicionales, situaciones especiales, o cualquier información que desee que su preparadora de impuestos sepa.
+              </label>
+              <textarea name="additionalNotes" rows="6"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 8 ===== -->
+        <section class="tef-section">
+          <div class="tef-section-header">
+            <span class="num">8</span>
+            <h2 data-en="Signature" data-es="Firma">Firma
+              <span class="es" data-en="Signature" data-es="Firma"></span>
+            </h2>
+          </div>
+          <div class="tef-section-body">
+            <div class="tef-grid">
+              <div class="tef-field">
+                <label><span data-en="Full Name" data-es="Nombre Completo">Nombre Completo</span> <span class="req">*</span>
+                  <span class="es" data-en="Full Name" data-es="Nombre Completo"></span>
+                </label>
+                <input type="text" name="signatureName" required>
+              </div>
+              <div class="tef-field">
+                <label><span data-en="Date" data-es="Fecha">Fecha</span> <span class="req">*</span>
+                  <span class="es" data-en="Date" data-es="Fecha"></span>
+                </label>
+                <input type="date" name="signatureDate" required>
+              </div>
+            </div>
+
+            <div class="tef-checkbox-row" style="margin-top:18px">
+              <input type="checkbox" id="declarationCheck" name="declaration" required>
+              <label for="declarationCheck">
+                <span data-en="I declare that the information provided in this form is true, correct, and complete to the best of my knowledge."
+                      data-es="Declaro que la información proporcionada en este formulario es verdadera, correcta y completa según mi mejor conocimiento.">
+                  Declaro que la información proporcionada en este formulario es verdadera, correcta y completa según mi mejor conocimiento.
+                </span>
+              </label>
+            </div>
+
+            <div class="tef-actions" style="margin-top:24px">
+              <button type="button" class="tef-btn tef-btn-gold" onclick="window.print()" data-en="📄 Download / Print PDF" data-es="📄 Descargar / Imprimir PDF">📄 Descargar / Imprimir PDF</button>
+              <button type="submit" class="tef-btn" data-en="📤 Submit Form" data-es="📤 Enviar Formulario">📤 Enviar Formulario</button>
+            </div>
+          </div>
+        </section>
+
+      </form>
+
+      <div class="tef-print-footer">
+        ClavePro Services | angela@clavepros.com | (281) 935-7568 | clavepros.com
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo"><img src="images/logo-clavepro.svg" alt="Clave Pro Services" class="footer-logo-img"></div>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-es="Inicio">Inicio</a>
+          <a href="services.html" data-en="Services" data-es="Servicios">Servicios</a>
+          <a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a>
+          <a href="contact.html" data-en="Contact" data-es="Contacto">Contacto</a>
+          <a href="documents.html" data-en="Documents" data-es="Documentos">Documentos</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://wa.me/12819357568" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-en="© 2025 Clave Pro Services · Houston, TX · angela@clavepros.com" data-es="© 2025 Clave Pro Services · Houston, TX · angela@clavepros.com">© 2025 Clave Pro Services · Houston, TX · angela@clavepros.com</span>
+        <br><a href="legal.html" class="footer-legal-link" data-en="Legal Disclaimers &amp; Privacy Policy" data-es="Avisos Legales y Política de Privacidad">Avisos Legales y Política de Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/12819357568" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="wa-tooltip" data-en="Chat with us!" data-es="¡Escríbenos!">¡Escríbenos!</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="main.js"></script>
+
+  <script>
+  /* ============================================================
+     Tax Expense Form — page-specific logic
+     ============================================================ */
+  (function () {
+    'use strict';
+
+    var STORAGE_KEY = 'clavepro_tax_expense_form_v1';
+    var STANDARD_MILEAGE_RATE = 0.70;
+    var MAX_SUBCONTRACTORS = 10;
+
+    /* ---- Expense definitions ---- */
+    var EXPENSES = [
+      { key: 'advertising', en: 'Advertising & Marketing', es: 'Publicidad y Marketing' },
+      { key: 'bankFees', en: 'Bank Fees & Charges', es: 'Cargos Bancarios' },
+      { key: 'cellPhone', en: 'Cell Phone', es: 'Teléfono Celular', pct: true, pctEn: 'Business %', pctEs: '% de uso de negocio' },
+      { key: 'insurance', en: 'Insurance (business)', es: 'Seguros del Negocio' },
+      { key: 'legalProf', en: 'Legal & Professional Fees', es: 'Honorarios Legales y Profesionales' },
+      { key: 'licenses', en: 'Licenses & Permits', es: 'Licencias y Permisos' },
+      { key: 'profLicenses', en: 'Professional Licenses & Certifications', es: 'Licencias y Certificaciones Profesionales' },
+      { key: 'office', en: 'Office Supplies', es: 'Materiales de Oficina' },
+      { key: 'repairs', en: 'Repairs & Maintenance', es: 'Reparaciones y Mantenimiento' },
+      { key: 'tools', en: 'Tools & Equipment', es: 'Herramientas y Equipos' },
+      { key: 'uniforms', en: 'Uniforms & Work Clothing', es: 'Uniformes y Ropa de Trabajo' },
+      { key: 'fuel', en: 'Fuel (non-vehicle Schedule C)', es: 'Combustible' },
+      { key: 'tolls', en: 'Tolls', es: 'Peajes' },
+      { key: 'platformFees', en: 'Platform Fees (Uber, Lyft, DoorDash, Amazon Flex, etc.)', es: 'Tarifas de Plataforma', platform: true },
+      { key: 'scales', en: 'Scales Fees', es: 'Tarifas de Báscula' },
+      { key: 'dotPhysical', en: 'DOT Physical', es: 'Examen Físico DOT' },
+      { key: 'meals', en: 'Meals (business — 50%)', es: 'Comidas de Negocio (50%)' },
+      { key: 'travel', en: 'Travel', es: 'Viajes de Negocio' },
+      { key: 'education', en: 'Education & Training (business-related)', es: 'Educación y Capacitación (relacionada con el negocio)',
+        noteEn: 'Must be related to your current business — not for a new career',
+        noteEs: 'Debe estar relacionada con su negocio actual — no para una nueva carrera' }
+    ];
+
+    /* ---- Render expense rows ---- */
+    function renderExpenses() {
+      var container = document.getElementById('expenseList');
+      if (!container) return;
+      var html = '<div class="tef-grid">';
+      EXPENSES.forEach(function (e) {
+        var rowClass = 'tef-money-row';
+        if (e.pct) rowClass += ' with-pct';
+        if (e.platform) rowClass += ' with-platform';
+
+        html += '<div class="tef-field tef-full"><div class="' + rowClass + '">';
+
+        // Description / label
+        html += '<div class="tef-field" style="margin:0">';
+        html += '<label><span data-en="' + e.en + '" data-es="' + e.es + '">' + e.es + '</span>';
+        html += '<span class="es" data-en="' + e.en + '" data-es="' + e.es + '"></span></label>';
+        html += '<input type="text" name="exp_' + e.key + '_desc" placeholder="" data-en-ph="Description / notes" data-es-ph="Descripción / notas">';
+        html += '</div>';
+
+        // Platform name field
+        if (e.platform) {
+          html += '<div class="tef-field" style="margin:0">';
+          html += '<label><span data-en="Platform name" data-es="Nombre de la plataforma">Nombre de la plataforma</span></label>';
+          html += '<input type="text" name="exp_' + e.key + '_platform">';
+          html += '</div>';
+        }
+
+        // Amount
+        html += '<div class="tef-field" style="margin:0">';
+        html += '<label>$</label>';
+        html += '<input type="number" step="0.01" min="0" name="exp_' + e.key + '_amt" class="money exp-amt">';
+        html += '</div>';
+
+        // Percent (cell phone)
+        if (e.pct) {
+          html += '<div class="tef-field" style="margin:0">';
+          html += '<label>%</label>';
+          html += '<input type="number" min="0" max="100" step="1" name="exp_' + e.key + '_pct">';
+          html += '</div>';
+        }
+
+        html += '</div>';
+        if (e.noteEn) {
+          html += '<div class="tef-note" data-en="' + e.noteEn + '" data-es="' + e.noteEs + '">' + e.noteEs + '</div>';
+        }
+        html += '</div>';
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    /* ---- Subcontractor rows ---- */
+    function makeSubRow(idx) {
+      var tr = document.createElement('tr');
+      tr.className = 'sub-row';
+      tr.innerHTML =
+        '<td><input type="text" name="sub_' + idx + '_name"></td>' +
+        '<td><input type="text" name="sub_' + idx + '_id"></td>' +
+        '<td><input type="text" name="sub_' + idx + '_service"></td>' +
+        '<td><input type="number" step="0.01" min="0" name="sub_' + idx + '_paid"></td>' +
+        '<td><select name="sub_' + idx + '_1099"><option value=""></option><option value="Yes">Yes / Sí</option><option value="No">No</option></select></td>' +
+        '<td class="col-del"><button type="button" class="del-row" aria-label="Remove">✕</button></td>';
+      tr.querySelector('.del-row').addEventListener('click', function () {
+        tr.remove();
+        saveProgress();
+      });
+      return tr;
+    }
+
+    function addSubRow() {
+      var body = document.getElementById('subBody');
+      if (body.children.length >= MAX_SUBCONTRACTORS) {
+        alert('Maximum ' + MAX_SUBCONTRACTORS + ' subcontractors.');
+        return;
+      }
+      body.appendChild(makeSubRow(body.children.length));
+    }
+
+    /* ---- Calculations ---- */
+    function num(v) { var n = parseFloat(v); return isNaN(n) ? 0 : n; }
+
+    function recalcTotals() {
+      var total = 0;
+      document.querySelectorAll('.exp-amt').forEach(function (i) { total += num(i.value); });
+      document.getElementById('totalExpensesOut').textContent = '$' + total.toFixed(2);
+
+      // Vehicle business %
+      var totalMi = num(document.getElementById('totalMiles').value);
+      var bizMi = num(document.getElementById('businessMiles').value);
+      var vPct = totalMi > 0 ? Math.min(100, (bizMi / totalMi) * 100) : 0;
+      document.getElementById('vehiclePctOut').textContent = vPct.toFixed(1) + '%';
+
+      // Mileage deduction
+      var method = document.querySelector('input[name="mileageMethod"]:checked');
+      var mdBox = document.getElementById('mileageDeductionBox');
+      if (method && method.value === 'standard') {
+        mdBox.style.display = 'block';
+        document.getElementById('mileageDeductionOut').textContent =
+          '$' + (bizMi * STANDARD_MILEAGE_RATE).toFixed(2);
+      } else {
+        mdBox.style.display = 'none';
+      }
+
+      // Home office %
+      var totalSqft = num(document.getElementById('homeTotalSqft').value);
+      var officeSqft = num(document.getElementById('homeOfficeSqft').value);
+      var hPct = totalSqft > 0 ? Math.min(100, (officeSqft / totalSqft) * 100) : 0;
+      document.getElementById('homePctOut').textContent = hPct.toFixed(1) + '%';
+    }
+
+    /* ---- Save / load to localStorage ---- */
+    function collectForm() {
+      var form = document.getElementById('taxExpenseForm');
+      var data = {};
+      var inputs = form.querySelectorAll('input, select, textarea');
+      inputs.forEach(function (el) {
+        if (!el.name) return;
+        if (el.type === 'checkbox') data[el.name] = el.checked;
+        else if (el.type === 'radio') { if (el.checked) data[el.name] = el.value; }
+        else data[el.name] = el.value;
+      });
+      // Subcontractor row count
+      data._subRowCount = document.querySelectorAll('#subBody tr').length;
+      return data;
+    }
+
+    function saveProgress() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(collectForm())); } catch (e) {}
+    }
+
+    function loadProgress() {
+      var raw;
+      try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { return; }
+      if (!raw) return;
+      var data;
+      try { data = JSON.parse(raw); } catch (e) { return; }
+
+      // Add saved subcontractor rows first
+      var subCount = data._subRowCount || 0;
+      var body = document.getElementById('subBody');
+      while (body.children.length < subCount) addSubRow();
+
+      var form = document.getElementById('taxExpenseForm');
+      Object.keys(data).forEach(function (k) {
+        if (k.charAt(0) === '_') return;
+        var els = form.querySelectorAll('[name="' + k + '"]');
+        els.forEach(function (el) {
+          if (el.type === 'checkbox') el.checked = !!data[k];
+          else if (el.type === 'radio') el.checked = (el.value === data[k]);
+          else el.value = data[k];
+        });
+      });
+    }
+
+    /* ---- Submit to Airtable ---- */
+    var AIRTABLE_BASE  = 'appZpPihAI3InXMdx';
+    var AIRTABLE_TABLE = 'tbl1TjdsA3JgCAfdl';
+    var AIRTABLE_TOKEN = 'patnswTAVvjglK3b8.511e3c35ea5640400933c2b00eb454429724ad480c293a60cd91bca9f77df1d7';
+
+    function showStatus(msg, kind) {
+      var s = document.getElementById('formStatus');
+      s.textContent = msg;
+      s.className = 'tef-status ' + kind;
+    }
+
+    function buildNotes(data) {
+      // Trim empty values for readability
+      var clean = {};
+      Object.keys(data).forEach(function (k) {
+        if (k.charAt(0) === '_') return;
+        var v = data[k];
+        if (v === '' || v === false || v == null) return;
+        clean[k] = v;
+      });
+      return JSON.stringify(clean, null, 2);
+    }
+
+    function submitToAirtable(e) {
+      e.preventDefault();
+      var data = collectForm();
+
+      if (!data.businessName || !data.ownerName || !data.taxYear || !data.signatureName || !data.declaration) {
+        showStatus(
+          (document.documentElement.lang === 'en'
+            ? 'Please complete required fields: Business Name, Owner Name, Tax Year, Signature, and the declaration checkbox.'
+            : 'Por favor complete los campos requeridos: Nombre del Negocio, Nombre del Dueño, Año Fiscal, Firma y la casilla de declaración.'),
+          'err'
+        );
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      var payload = {
+        records: [{
+          fields: {
+            'Name': data.ownerName,
+            'E-mail': data.email || '',
+            'Phone': data.phone || '',
+            'Type of Service': ['Tax Preparation - Business'],
+            'Status': 'New',
+            'Notes': 'BUSINESS TAX EXPENSE FORM — ' + (data.businessName || '') +
+              ' (' + (data.taxYear || '') + ')\n\n' + buildNotes(data)
+          }
+        }]
+      };
+
+      var btn = document.querySelector('#taxExpenseForm button[type="submit"]');
+      btn.disabled = true;
+      var origText = btn.textContent;
+      btn.textContent = document.documentElement.lang === 'en' ? 'Sending...' : 'Enviando...';
+
+      fetch('https://api.airtable.com/v0/' + AIRTABLE_BASE + '/' + AIRTABLE_TABLE, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + AIRTABLE_TOKEN,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Airtable ' + res.status);
+        return res.json();
+      })
+      .then(function () {
+        showStatus(
+          document.documentElement.lang === 'en'
+            ? '✓ Form submitted successfully. Angela will contact you shortly.'
+            : '✓ Formulario enviado con éxito. Angela se pondrá en contacto pronto.',
+          'ok'
+        );
+        btn.disabled = false;
+        btn.textContent = origText;
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function (err) {
+        console.error(err);
+        // Mailto fallback
+        var subject = encodeURIComponent('Business Tax Expense Form — ' + (data.businessName || ''));
+        var body = encodeURIComponent(buildNotes(data));
+        window.location.href = 'mailto:angela@clavepros.com?subject=' + subject + '&body=' + body;
+        btn.disabled = false;
+        btn.textContent = origText;
+        showStatus(
+          document.documentElement.lang === 'en'
+            ? 'Could not reach Airtable. Opening email instead — please send the email to complete your submission.'
+            : 'No se pudo conectar con Airtable. Abriendo correo — por favor envíe el correo para completar.',
+          'err'
+        );
+      });
+    }
+
+    /* ---- Init ---- */
+    document.addEventListener('DOMContentLoaded', function () {
+      renderExpenses();
+      addSubRow(); // start with one empty row
+      loadProgress();
+      recalcTotals();
+
+      // Re-apply language to dynamic content
+      var lang = localStorage.getItem('clavepro_lang') || 'es';
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          var ph = el.getAttribute('data-' + lang + '-ph');
+          if (ph) el.placeholder = ph;
+        } else if (el.tagName !== 'OPTION') {
+          el.innerHTML = el.getAttribute('data-' + lang) || el.innerHTML;
+        }
+      });
+
+      // Recalc on input
+      document.getElementById('taxExpenseForm').addEventListener('input', function () {
+        recalcTotals();
+        saveProgress();
+      });
+      document.getElementById('taxExpenseForm').addEventListener('change', function () {
+        recalcTotals();
+        saveProgress();
+      });
+
+      document.getElementById('addSubBtn').addEventListener('click', addSubRow);
+
+      document.getElementById('clearBtn').addEventListener('click', function () {
+        var msg = document.documentElement.lang === 'en'
+          ? 'Are you sure you want to clear the entire form? This cannot be undone.'
+          : '¿Está seguro que desea borrar todo el formulario? Esta acción no se puede deshacer.';
+        if (!confirm(msg)) return;
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+        document.getElementById('taxExpenseForm').reset();
+        document.getElementById('subBody').innerHTML = '';
+        addSubRow();
+        recalcTotals();
+      });
+
+      document.getElementById('taxExpenseForm').addEventListener('submit', submitToAirtable);
+    });
+  })();
+  </script>
+
+</body>
+</html>
