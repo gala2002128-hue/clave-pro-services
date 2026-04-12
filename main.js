@@ -350,8 +350,7 @@
       var name    = form.querySelector('[name="name"]').value.trim();
       var email   = form.querySelector('[name="email"]').value.trim();
       var phone   = form.querySelector('[name="phone"]').value.trim();
-      var service = form.querySelector('[name="service"]');
-      var serviceValue = service.value;
+      var checked = form.querySelectorAll('[name="service"]:checked');
       var message = form.querySelector('[name="message"]').value.trim();
 
       // Map form values to exact Airtable option names
@@ -372,7 +371,22 @@
         'texas-benefits': 'Your Texas Benefits (SNAP, Medicaid, CHIP)',
         'other': 'Other'
       };
-      var serviceText = SERVICE_MAP[serviceValue] || 'Other';
+
+      var serviceValues = [];
+      var serviceTexts = [];
+      checked.forEach(function (cb) {
+        serviceValues.push(cb.value);
+        serviceTexts.push(SERVICE_MAP[cb.value] || 'Other');
+      });
+
+      if (serviceValues.length === 0) {
+        alert(lang === 'en' ? 'Please select at least one service.' : 'Por favor seleccione al menos un servicio.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = lang === 'en' ? 'Send Message' : 'Enviar Mensaje';
+        return;
+      }
+
+      var serviceText = serviceTexts.join(', ');
 
       submitBtn.disabled = true;
       submitBtn.textContent = lang === 'en' ? 'Sending...' : 'Enviando...';
@@ -381,7 +395,7 @@
         'Name': name,
         'E-mail': email,
         'Phone': phone,
-        'Type of Service': [serviceText],
+        'Type of Service': serviceTexts,
         'Status': 'New'
       };
 
@@ -411,7 +425,7 @@
             from_name: name,
             email: email,
             service: serviceText,
-            checklist: buildEmailChecklist(serviceValue)
+            checklist: serviceValues.map(buildEmailChecklist).join('')
           }).catch(function (err) {
             console.error('EmailJS error:', err);
           });

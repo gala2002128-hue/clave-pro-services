@@ -94,25 +94,24 @@
             <label data-en="Phone" data-es="Teléfono">Teléfono</label>
             <input type="tel" name="phone" data-en="(000) 000-0000" data-es="(000) 000-0000" placeholder="(000) 000-0000">
 
-            <label data-en="Service Needed" data-es="Servicio Requerido">Servicio Requerido</label>
-            <select name="service" required>
-              <option value="" data-en="— Select a service —" data-es="— Selecciona un servicio —">— Selecciona un servicio —</option>
-              <option value="tax-individual" data-en="Tax Preparation — Individual" data-es="Preparación de Impuestos — Individual">Preparación de Impuestos — Individual</option>
-              <option value="tax-business" data-en="Tax Preparation — Business" data-es="Preparación de Impuestos — Negocio">Preparación de Impuestos — Negocio</option>
-              <option value="llc" data-en="LLC Formation" data-es="Formación de LLC">Formación de LLC</option>
-              <option value="ein" data-en="EIN Registration" data-es="Registro de EIN">Registro de EIN</option>
-              <option value="dba" data-en="DBA Registration" data-es="Registro de DBA">Registro de DBA</option>
-              <option value="ifta" data-en="IFTA Registration / Filing" data-es="Registro / Presentación de IFTA">Registro / Presentación de IFTA</option>
-              <option value="nyhut" data-en="NY HUT Registration" data-es="Registro de NY HUT">Registro de NY HUT</option>
-              <option value="ucr" data-en="UCR Registration" data-es="Registro de UCR">Registro de UCR</option>
-              <option value="fmcsa" data-en="FMCSA / MC Authority" data-es="Autoridad FMCSA / MC">Autoridad FMCSA / MC</option>
-              <option value="boc3" data-en="BOC-3 Filing" data-es="Presentación BOC-3">Presentación BOC-3</option>
-              <option value="notary" data-en="Notary Services" data-es="Servicios Notariales">Servicios Notariales</option>
-              <option value="immigration" data-en="Immigration Forms" data-es="Formularios de Inmigración">Formularios de Inmigración</option>
-              <option value="lis-medicare" data-en="LIS / Medicare Extra Help" data-es="LIS / Ayuda Extra de Medicare">LIS / Ayuda Extra de Medicare</option>
-              <option value="texas-benefits" data-en="Your Texas Benefits (SNAP, Medicaid, CHIP)" data-es="Your Texas Benefits (SNAP, Medicaid, CHIP)">Your Texas Benefits (SNAP, Medicaid, CHIP)</option>
-              <option value="other" data-en="Other" data-es="Otro">Otro</option>
-            </select>
+            <label data-en="Services Needed (select all that apply)" data-es="Servicios Requeridos (seleccione todos los que apliquen)">Servicios Requeridos (seleccione todos los que apliquen)</label>
+            <div class="checkbox-group" id="serviceCheckboxes">
+              <label class="checkbox-item"><input type="checkbox" name="service" value="tax-individual"><span data-en="Tax Preparation — Individual" data-es="Preparación de Impuestos — Individual">Preparación de Impuestos — Individual</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="tax-business"><span data-en="Tax Preparation — Business" data-es="Preparación de Impuestos — Negocio">Preparación de Impuestos — Negocio</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="llc"><span data-en="LLC Formation" data-es="Formación de LLC">Formación de LLC</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="ein"><span data-en="EIN Registration" data-es="Registro de EIN">Registro de EIN</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="dba"><span data-en="DBA Registration" data-es="Registro de DBA">Registro de DBA</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="ifta"><span data-en="IFTA Registration / Filing" data-es="Registro / Presentación de IFTA">Registro / Presentación de IFTA</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="nyhut"><span data-en="NY HUT Registration" data-es="Registro de NY HUT">Registro de NY HUT</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="ucr"><span data-en="UCR Registration" data-es="Registro de UCR">Registro de UCR</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="fmcsa"><span data-en="FMCSA / MC Authority" data-es="Autoridad FMCSA / MC">Autoridad FMCSA / MC</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="boc3"><span data-en="BOC-3 Filing" data-es="Presentación BOC-3">Presentación BOC-3</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="notary"><span data-en="Notary Services" data-es="Servicios Notariales">Servicios Notariales</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="immigration"><span data-en="Immigration Forms" data-es="Formularios de Inmigración">Formularios de Inmigración</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="lis-medicare"><span data-en="LIS / Medicare Extra Help" data-es="LIS / Ayuda Extra de Medicare">LIS / Ayuda Extra de Medicare</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="texas-benefits"><span data-en="Your Texas Benefits (SNAP, Medicaid, CHIP)" data-es="Your Texas Benefits (SNAP, Medicaid, CHIP)">Your Texas Benefits (SNAP, Medicaid, CHIP)</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="other"><span data-en="Other" data-es="Otro">Otro</span></label>
+            </div>
 
             <label data-en="Message" data-es="Mensaje">Mensaje</label>
             <textarea name="message" rows="5" data-en="How can we help you?" data-es="¿Cómo podemos ayudarte?" placeholder="¿Cómo podemos ayudarte?"></textarea>
