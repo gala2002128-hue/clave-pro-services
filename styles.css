@@ -298,6 +298,232 @@ ul { list-style: none; }
 .package-addon strong { color: #003366; display: block; margin-bottom: .2rem; }
 .package-addon span { color: #555; font-size: .95rem; }
 
+.btn-row {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+/* ---------- Service Card Link (homepage + services) ---------- */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.card-link .card {
+  cursor: pointer;
+  position: relative;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  border: 2px solid transparent;
+}
+.card-link:hover .card {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 51, 102, 0.18);
+  border-color: #C9A84C;
+}
+.card-link .card::after {
+  content: "→";
+  position: absolute;
+  right: 18px; bottom: 16px;
+  color: #C9A84C;
+  font-size: 1.3rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity .25s, transform .25s;
+}
+.card-link:hover .card::after {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* ---------- Service Detail Page ---------- */
+.hero-service {
+  background: linear-gradient(135deg, #003366 0%, #00264d 100%);
+  padding: 3rem 0 2.5rem;
+  position: relative;
+}
+.hero-service h1 {
+  color: #fff;
+  font-size: 2.4rem;
+  margin: .8rem 0 .5rem;
+}
+.hero-service p {
+  color: #e8eef7;
+  font-size: 1.1rem;
+  max-width: 780px;
+  margin: 0;
+}
+.back-link {
+  color: #C9A84C;
+  text-decoration: none;
+  font-size: .95rem;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+.back-link:hover { color: #fff; }
+.sd-price-badge {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #C9A84C;
+  color: #003366;
+  padding: .5rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.sd-sub-tabs {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+.sd-tab {
+  background: #fff;
+  border: 2px solid #e0e4ea;
+  color: #003366;
+  padding: .7rem 1.4rem;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+.sd-tab:hover { border-color: #C9A84C; }
+.sd-tab.active {
+  background: #003366;
+  color: #fff;
+  border-color: #003366;
+}
+
+.sd-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 1.8rem;
+  box-shadow: 0 4px 20px rgba(0, 51, 102, 0.06);
+  border: 1px solid #e0e4ea;
+}
+.sd-card h2 {
+  color: #003366;
+  margin-top: 0;
+  font-family: 'Playfair Display', serif;
+}
+.sd-card-highlight {
+  border-left: 5px solid #C9A84C;
+  background: linear-gradient(135deg, #fffaf0 0%, #fff 60%);
+}
+.sd-intro {
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.sd-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  margin-bottom: 1rem;
+}
+.sd-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: .8rem;
+  background: #f8f9fc;
+  padding: .9rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #e0e4ea;
+  cursor: pointer;
+  transition: all .2s;
+}
+.sd-checkbox:hover {
+  background: #f0f4fa;
+  border-color: #C9A84C;
+}
+.sd-checkbox input[type="checkbox"] {
+  width: 20px; height: 20px;
+  margin-top: 2px;
+  accent-color: #C9A84C;
+  cursor: pointer;
+}
+.sd-checkbox span {
+  color: #333;
+  line-height: 1.4;
+  flex: 1;
+}
+.sd-checkbox input:checked + span {
+  color: #888;
+  text-decoration: line-through;
+  text-decoration-color: #C9A84C;
+}
+.sd-wehelp-badge {
+  display: inline-block;
+  background: #fff7e6;
+  color: #C9A84C;
+  font-style: normal;
+  font-weight: 600;
+  font-size: .8rem;
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  margin-left: .4rem;
+  border: 1px solid #C9A84C;
+}
+.sd-checklist-status {
+  font-size: .9rem;
+  color: #666;
+  text-align: right;
+  font-weight: 600;
+}
+
+#sdIntakeForm {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+#sdIntakeForm label {
+  font-weight: 600;
+  color: #003366;
+  margin-top: .8rem;
+  font-size: .95rem;
+}
+#sdIntakeForm input,
+#sdIntakeForm select,
+#sdIntakeForm textarea {
+  padding: .7rem .9rem;
+  border: 2px solid #e0e4ea;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: .95rem;
+  transition: border-color .2s;
+}
+#sdIntakeForm input:focus,
+#sdIntakeForm select:focus,
+#sdIntakeForm textarea:focus {
+  outline: none;
+  border-color: #C9A84C;
+}
+
+.sd-actions {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.sd-actions .btn { flex: 1; min-width: 180px; }
+
+@media (max-width: 700px) {
+  .hero-service h1 { font-size: 1.7rem; }
+  .sd-card { padding: 1.4rem 1.1rem; }
+}
+
 /* ---------- About Page ---------- */
 .about-profile {
   display: flex; gap: 3rem; align-items: center;
