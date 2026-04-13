@@ -609,6 +609,32 @@ ul { list-style: none; }
   margin-top: 1rem;
   width: 100%;
 }
+.payment-card-featured {
+  border-color: #C9A84C;
+  border-width: 3px;
+  background: linear-gradient(135deg, #fffaf0 0%, #fff 60%);
+}
+.payment-fee-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #fff3e0;
+  color: #B45309;
+  padding: .3rem .7rem;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+  border: 1px solid #f0d4a8;
+}
+.payment-fee-note {
+  margin-top: 1rem;
+  padding: .9rem 1.1rem;
+  background: #fff7e6;
+  border-left: 4px solid #C9A84C;
+  border-radius: 4px;
+  color: #5a4a1a;
+  font-size: .95rem;
+}
 
 .payment-steps {
   padding-left: 1.3rem;
