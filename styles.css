@@ -526,6 +526,101 @@ ul { list-style: none; }
   .sd-card { padding: 1.4rem 1.1rem; }
 }
 
+/* ---------- Payment Page ---------- */
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .payment-grid { grid-template-columns: 1fr; }
+}
+.payment-card {
+  background: #fff;
+  border: 2px solid #e0e4ea;
+  border-radius: 12px;
+  padding: 2rem 1.6rem;
+  text-align: center;
+  position: relative;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  display: flex;
+  flex-direction: column;
+}
+.payment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 51, 102, 0.14);
+  border-color: #C9A84C;
+}
+.payment-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #C9A84C;
+  color: #003366;
+  padding: .3rem .9rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.payment-icon {
+  font-size: 3rem;
+  margin-bottom: .5rem;
+}
+.payment-card h3 {
+  color: #003366;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin: 0 0 .8rem;
+}
+.payment-desc {
+  color: #666;
+  font-size: .92rem;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+.payment-account {
+  background: #f8f9fc;
+  padding: .7rem 1rem;
+  border-radius: 6px;
+  margin-bottom: .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .15rem;
+  border-left: 3px solid #C9A84C;
+}
+.payment-label {
+  font-size: .78rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+}
+.payment-value {
+  font-size: 1.05rem;
+  color: #003366;
+  font-weight: 700;
+  font-family: 'Inter', monospace;
+}
+.payment-card .btn,
+.payment-card .btn-copy {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.payment-steps {
+  padding-left: 1.3rem;
+  line-height: 1.8;
+  color: #333;
+}
+.payment-steps li { margin-bottom: .5rem; }
+.payment-cta {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
 /* ---------- About Page ---------- */
 .about-profile {
   display: flex; gap: 3rem; align-items: center;

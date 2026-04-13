@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment — Clave Pro Services</title>
+  <meta name="description" content="Payment options for Clave Pro Services clients.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo"><img src="images/logo-clavepro.svg" alt="Clave Pro Services" class="navbar-logo"></a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" data-en="Home" data-es="Inicio">Inicio</a>
+        <a href="services.html" data-en="Services" data-es="Servicios">Servicios</a>
+        <a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a>
+        <a href="contact.html" data-en="Contact" data-es="Contacto">Contacto</a>
+        <button class="lang-toggle">🇺🇸 EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-service">
+    <div class="container">
+      <h1 data-en="Payment Options" data-es="Opciones de Pago">Opciones de Pago</h1>
+      <p data-en="Thank you for choosing Clave Pro Services. Please use one of the options below to complete your payment." data-es="Gracias por elegir Clave Pro Services. Por favor use una de las opciones a continuación para completar su pago.">Gracias por elegir Clave Pro Services. Por favor use una de las opciones a continuación para completar su pago.</p>
+    </div>
+  </section>
+
+  <!-- Important Notice -->
+  <section class="section">
+    <div class="container">
+      <div class="sd-card sd-card-highlight">
+        <h2 data-en="⚠ Before You Pay" data-es="⚠ Antes de Pagar">⚠ Antes de Pagar</h2>
+        <p data-en="Please confirm the exact amount with Angela via WhatsApp or email before sending payment. Include your full name and the service in the payment note so we can match it to your account." data-es="Por favor confirme el monto exacto con Angela por WhatsApp o correo antes de enviar el pago. Incluya su nombre completo y el servicio en la nota del pago para que podamos identificarlo.">Por favor confirme el monto exacto con Angela por WhatsApp o correo antes de enviar el pago. Incluya su nombre completo y el servicio en la nota del pago para que podamos identificarlo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Methods -->
+  <section class="section section-gray">
+    <div class="container">
+      <h2 class="section-title" data-en="Choose Your Preferred Method" data-es="Elige Tu Método Preferido">Elige Tu Método Preferido</h2>
+
+      <div class="payment-grid">
+
+        <!-- Zelle -->
+        <div class="payment-card">
+          <div class="payment-badge payment-badge-recommended" data-en="⭐ No Fees" data-es="⭐ Sin Comisión">⭐ Sin Comisión</div>
+          <div class="payment-icon">💸</div>
+          <h3>Zelle</h3>
+          <p class="payment-desc" data-en="Fast, free, and secure. Available in most US banking apps." data-es="Rápido, gratis y seguro. Disponible en la mayoría de apps bancarias de EE.UU.">Rápido, gratis y seguro. Disponible en la mayoría de apps bancarias de EE.UU.</p>
+          <div class="payment-account">
+            <span class="payment-label" data-en="Send to:" data-es="Enviar a:">Enviar a:</span>
+            <span class="payment-value" id="zelleValue">(281) 935-7568</span>
+          </div>
+          <div class="payment-account">
+            <span class="payment-label" data-en="Name:" data-es="Nombre:">Nombre:</span>
+            <span class="payment-value">Angela Gala</span>
+          </div>
+          <button class="btn btn-gold btn-copy" data-copy="2819357568" data-en="📋 Copy Number" data-es="📋 Copiar Número">📋 Copiar Número</button>
+        </div>
+
+        <!-- Venmo -->
+        <div class="payment-card">
+          <div class="payment-icon">💰</div>
+          <h3>Venmo</h3>
+          <p class="payment-desc" data-en="Quick mobile transfer. Standard Venmo fees may apply for credit card payments." data-es="Transferencia móvil rápida. Pueden aplicar comisiones de Venmo al pagar con tarjeta de crédito.">Transferencia móvil rápida. Pueden aplicar comisiones de Venmo al pagar con tarjeta de crédito.</p>
+          <div class="payment-account">
+            <span class="payment-label" data-en="Username:" data-es="Usuario:">Usuario:</span>
+            <span class="payment-value">@ClavePro</span>
+          </div>
+          <a href="https://venmo.com/u/ClavePro" target="_blank" rel="noopener" class="btn btn-gold" data-en="Open in Venmo →" data-es="Abrir en Venmo →">Abrir en Venmo →</a>
+        </div>
+
+        <!-- PayPal -->
+        <div class="payment-card">
+          <div class="payment-icon">🅿️</div>
+          <h3>PayPal</h3>
+          <p class="payment-desc" data-en="International payments accepted. Small processing fee may apply." data-es="Aceptamos pagos internacionales. Puede aplicar una pequeña comisión de procesamiento.">Aceptamos pagos internacionales. Puede aplicar una pequeña comisión de procesamiento.</p>
+          <div class="payment-account">
+            <span class="payment-label" data-en="Username:" data-es="Usuario:">Usuario:</span>
+            <span class="payment-value">@anggalag</span>
+          </div>
+          <a href="https://paypal.me/anggalag" target="_blank" rel="noopener" class="btn btn-gold" data-en="Pay with PayPal →" data-es="Pagar con PayPal →">Pagar con PayPal →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructions -->
+  <section class="section">
+    <div class="container">
+      <div class="sd-card">
+        <h2 data-en="After You Pay" data-es="Después de Pagar">Después de Pagar</h2>
+        <ol class="payment-steps">
+          <li data-en="Take a screenshot of your payment confirmation." data-es="Toma un screenshot de la confirmación del pago.">Toma un screenshot de la confirmación del pago.</li>
+          <li data-en="Send it to Angela via WhatsApp at (281) 935-7568 or email angela@clavepros.com." data-es="Envíalo a Angela por WhatsApp al (281) 935-7568 o al correo angela@clavepros.com.">Envíalo a Angela por WhatsApp al (281) 935-7568 o al correo angela@clavepros.com.</li>
+          <li data-en="We'll confirm receipt within a few hours and start working on your service." data-es="Confirmaremos la recepción en unas horas y comenzaremos a trabajar en tu servicio.">Confirmaremos la recepción en unas horas y comenzaremos a trabajar en tu servicio.</li>
+        </ol>
+        <div class="payment-cta">
+          <a href="https://wa.me/12819357568" target="_blank" rel="noopener" class="btn btn-whatsapp-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-en="Send confirmation via WhatsApp" data-es="Enviar confirmación por WhatsApp">Enviar confirmación por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo"><img src="images/logo-clavepro.svg" alt="Clave Pro Services" class="footer-logo-img"></div>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-es="Inicio">Inicio</a>
+          <a href="services.html" data-en="Services" data-es="Servicios">Servicios</a>
+          <a href="about.html" data-en="About" data-es="Sobre Mí">Sobre Mí</a>
+          <a href="contact.html" data-en="Contact" data-es="Contacto">Contacto</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Clave Pro Services · Houston, TX · angela@clavepros.com</span>
+        <br><a href="legal.html" class="footer-legal-link" data-en="Legal Disclaimers &amp; Privacy Policy" data-es="Avisos Legales y Política de Privacidad">Avisos Legales y Política de Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copy-to-clipboard helper -->
+  <script>
+    document.querySelectorAll('.btn-copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var text = btn.getAttribute('data-copy');
+        navigator.clipboard.writeText(text).then(function () {
+          var original = btn.innerHTML;
+          var lang = document.documentElement.lang || 'es';
+          btn.innerHTML = lang === 'en' ? '✓ Copied!' : '✓ ¡Copiado!';
+          setTimeout(function () { btn.innerHTML = original; }, 2000);
+        });
+      });
+    });
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
