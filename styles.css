@@ -348,6 +348,7 @@ ul { list-style: none; }
   background: linear-gradient(135deg, #003366 0%, #00264d 100%);
   padding: 3rem 0 2.5rem;
   position: relative;
+  text-align: center;
 }
 .hero-service h1 {
   color: #fff;
@@ -358,14 +359,15 @@ ul { list-style: none; }
   color: #e8eef7;
   font-size: 1.1rem;
   max-width: 780px;
-  margin: 0;
+  margin: 0 auto;
 }
 .back-link {
   color: #C9A84C;
   text-decoration: none;
   font-size: .95rem;
   font-weight: 500;
-  display: inline-block;
+  display: block;
+  text-align: left;
   margin-bottom: .5rem;
 }
 .back-link:hover { color: #fff; }
