@@ -395,7 +395,7 @@
         'immigration': 'Immigration Forms',
         'lis-medicare': 'LIS / Medicare Extra Help',
         'texas-benefits': 'Your Texas Benefits (SNAP, Medicaid, CHIP)',
-        'web-development': 'Web Development / Presencia Digital',
+        'web-development': 'Desarrollo Web / Presencia Digital',
         'other': 'Other'
       };
 
