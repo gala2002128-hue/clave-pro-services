@@ -257,6 +257,32 @@
           'Documentos de inmigración (si aplica)'
         ]
       }
+    },
+    'web-development': {
+      en: {
+        title: 'Web Development / Digital Presence',
+        docs: [
+          'Business name, logo, and brand colors (if available)',
+          'Short description of your business and services',
+          'Photos of your work, team, or storefront (high quality if possible)',
+          'List of services and starting prices',
+          'Contact info to display: phone, email, address, social media',
+          'Examples of websites you like (reference links)',
+          'Domain name preferences (e.g., yourbusiness.com) — we help you register'
+        ]
+      },
+      es: {
+        title: 'Desarrollo Web / Presencia Digital',
+        docs: [
+          'Nombre del negocio, logo y colores de marca (si los tiene)',
+          'Descripción corta de su negocio y servicios',
+          'Fotos de su trabajo, equipo o local (de buena calidad si es posible)',
+          'Lista de servicios y precios iniciales',
+          'Información de contacto a mostrar: teléfono, correo, dirección, redes sociales',
+          'Ejemplos de sitios web que le gusten (enlaces de referencia)',
+          'Preferencias de nombre de dominio (ej. sunegocio.com) — le ayudamos a registrarlo'
+        ]
+      }
     }
   };
 
@@ -369,6 +395,7 @@
         'immigration': 'Immigration Forms',
         'lis-medicare': 'LIS / Medicare Extra Help',
         'texas-benefits': 'Your Texas Benefits (SNAP, Medicaid, CHIP)',
+        'web-development': 'Web Development / Presencia Digital',
         'other': 'Other'
       };
 
