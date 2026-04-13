@@ -210,6 +210,93 @@ ul { list-style: none; }
 .service-note {
   font-size: .9rem; color: #666; margin-bottom: 1.5rem; font-style: italic;
 }
+.service-intro {
+  font-size: 1.05rem; color: #333; margin-bottom: 2rem; max-width: 780px;
+}
+
+/* ---------- Package Cards (Digital Presence) ---------- */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 900px) {
+  .packages-grid { grid-template-columns: 1fr; }
+}
+.package-card {
+  background: #fff;
+  border: 2px solid #e0e4ea;
+  border-radius: 10px;
+  padding: 1.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+}
+.package-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 51, 102, 0.12);
+}
+.package-card-featured {
+  border-color: #C9A84C;
+  border-width: 3px;
+  position: relative;
+}
+.package-card-featured::before {
+  content: "★";
+  position: absolute;
+  top: -14px; right: 18px;
+  background: #C9A84C; color: #fff;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.package-header {
+  border-bottom: 1px solid #e0e4ea;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.package-header h3 {
+  color: #003366;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin: 0 0 .4rem 0;
+}
+.package-price {
+  color: #C9A84C;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.package-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+.package-features li {
+  padding: .5rem 0 .5rem 1.6rem;
+  position: relative;
+  color: #333;
+  font-size: .95rem;
+  border-bottom: 1px solid #f0f2f5;
+}
+.package-features li:last-child { border-bottom: none; }
+.package-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #C9A84C;
+  font-weight: 700;
+}
+.package-addon {
+  background: #F5F7FA;
+  border-left: 4px solid #C9A84C;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+.package-addon strong { color: #003366; display: block; margin-bottom: .2rem; }
+.package-addon span { color: #555; font-size: .95rem; }
 
 /* ---------- About Page ---------- */
 .about-profile {
