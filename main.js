@@ -709,6 +709,9 @@
   function renderServiceDetail() {
     var root = document.getElementById('serviceDetailRoot');
     if (!root) return;
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
     var key = getServiceKeyFromUrl();
     var cfg = SERVICE_CONFIG[key];
     var lang = getStoredLang();
