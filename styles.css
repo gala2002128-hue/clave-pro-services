@@ -883,56 +883,76 @@ ul { list-style: none; }
 }
 
 /* ---------- Checkbox Group ---------- */
+.contact-form label + .checkbox-group {
+  margin-top: .8rem;
+}
 .checkbox-group {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: .7rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+  align-items: stretch;
 }
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .checkbox-group { grid-template-columns: 1fr; }
 }
 .checkbox-item {
   display: flex;
   align-items: flex-start;
-  gap: .75rem;
-  font-size: .92rem;
+  gap: .9rem;
+  font-size: .93rem;
+  line-height: 1.4;
   cursor: pointer;
-  padding: .85rem 1rem;
-  background: #f8f9fc;
+  padding: 1.15rem 1.25rem;
+  background: #ffffff;
   border: 2px solid #e0e4ea;
-  border-radius: 8px;
-  transition: all .2s;
-  line-height: 1.35;
-  min-height: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 51, 102, 0.04);
+  transition: transform .2s, box-shadow .2s, border-color .2s, background .2s;
+  min-height: 4.5rem;
+  height: 100%;
+  position: relative;
 }
 .checkbox-item:hover {
-  background: #fff;
+  background: #fffaf0;
   border-color: #C9A84C;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 51, 102, 0.12);
 }
 .checkbox-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   margin: 0;
   flex-shrink: 0;
   accent-color: #C9A84C;
   cursor: pointer;
-  margin-top: 1px;
+  /* Align with first line of text: checkbox (22px) centered within text (~20px line-height at .93rem * 1.4) */
+  margin-top: 0;
 }
 .checkbox-item span {
   color: #003366;
   font-weight: 500;
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 .checkbox-item:has(input:checked) {
-  background: #fffaf0;
+  background: linear-gradient(135deg, #fffaf0 0%, #fff7e6 100%);
   border-color: #C9A84C;
+  box-shadow: 0 6px 18px rgba(201, 168, 76, 0.22);
 }
 .checkbox-item:has(input:checked) span {
   color: #003366;
-  font-weight: 600;
+  font-weight: 700;
+}
+.checkbox-item:has(input:checked)::after {
+  content: "✓";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: #C9A84C;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 /* ---------- Form CTA ---------- */
