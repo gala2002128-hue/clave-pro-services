@@ -1,0 +1,25 @@
+# Client data / backups — never commit
+ClavePro-Clientes-Backup-*/
+clients/
+client-data/
+*.csv
+*.xlsx
+
+# Local env / secrets
+.env
+.env.*
+secrets.json
+config.local.*
+
+# OS / editors
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

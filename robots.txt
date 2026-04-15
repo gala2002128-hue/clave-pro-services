@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /payment.html
+Disallow: /upload.html
+Disallow: /tax-expense-form.html
+Disallow: /ClavePro-Clientes-Backup-2026-04-14/
+Disallow: /.git/
+
+# Block archive/proxy crawlers from sensitive pages
+User-agent: ia_archiver
+Disallow: /payment.html
+Disallow: /upload.html
+Disallow: /tax-expense-form.html
