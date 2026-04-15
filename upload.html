@@ -38,66 +38,30 @@
     </div>
   </section>
 
-  <!-- Upload Form -->
+  <!-- Temporarily offline for security upgrades -->
   <section class="section section-gray">
     <div class="container">
-      <div class="sd-card">
-        <h2 data-en="Your Information" data-es="Tu Información">Tu Información</h2>
-        <form id="uploadForm" class="contact-form">
-          <label data-en="Full Name *" data-es="Nombre Completo *">Nombre Completo *</label>
-          <input type="text" name="name" required placeholder="—">
+      <div class="sd-card" style="text-align:center;max-width:640px;margin:0 auto;">
+        <h2 data-en="🔒 Secure Upload — Temporarily Offline" data-es="🔒 Subida Segura — Temporalmente Fuera de Línea">🔒 Subida Segura — Temporalmente Fuera de Línea</h2>
+        <p style="margin-top:1rem" data-en="We are upgrading our document upload system to better protect your personal information. While we complete this upgrade, please send your documents directly to Angela using one of the options below." data-es="Estamos mejorando nuestro sistema de subida de documentos para proteger mejor tu información personal. Mientras completamos esta mejora, por favor envía tus documentos directamente a Angela usando una de las opciones a continuación.">
+          Estamos mejorando nuestro sistema de subida de documentos para proteger mejor tu información personal. Mientras completamos esta mejora, por favor envía tus documentos directamente a Angela usando una de las opciones a continuación.
+        </p>
 
-          <label>Email *</label>
-          <input type="email" name="email" required placeholder="tu@email.com">
-
-          <label data-en="Phone" data-es="Teléfono">Teléfono</label>
-          <input type="tel" name="phone" placeholder="(000) 000-0000">
-
-          <label data-en="Which service is this for? *" data-es="¿Para qué servicio? *">¿Para qué servicio? *</label>
-          <select name="service" required>
-            <option value="" data-en="— Choose service —" data-es="— Elige servicio —">— Elige servicio —</option>
-            <option value="Tax Preparation - Individual" data-en="Tax Preparation — Individual" data-es="Preparación de Impuestos — Individual">Preparación de Impuestos — Individual</option>
-            <option value="Tax Preparation - Business" data-en="Tax Preparation — Business" data-es="Preparación de Impuestos — Negocio">Preparación de Impuestos — Negocio</option>
-            <option value="LLC Formation" data-en="LLC Formation" data-es="Formación de LLC">Formación de LLC</option>
-            <option value="EIN Registration" data-en="EIN Registration" data-es="Registro de EIN">Registro de EIN</option>
-            <option value="IFTA Registration / Filing" data-en="Trucking Compliance" data-es="Cumplimiento de Transporte">Cumplimiento de Transporte</option>
-            <option value="Notary Services" data-en="Notary" data-es="Notaría">Notaría</option>
-            <option value="Immigration Forms" data-en="Immigration Forms" data-es="Formularios de Inmigración">Formularios de Inmigración</option>
-            <option value="LIS/Medicare Extra Help" data-en="LIS / Medicare Extra Help" data-es="LIS / Ayuda Extra de Medicare">LIS / Ayuda Extra de Medicare</option>
-            <option value="Your Texas Benefits (SNAP, Medicaid, CHIP)" data-en="Your Texas Benefits" data-es="Your Texas Benefits">Your Texas Benefits</option>
-            <option value="Desarrollo Web / Presencia Digital" data-en="Digital Presence" data-es="Presencia Digital">Presencia Digital</option>
-            <option value="Other" data-en="Other" data-es="Otro">Otro</option>
-          </select>
-
-          <label data-en="Notes for Angela (optional)" data-es="Notas para Angela (opcional)">Notas para Angela (opcional)</label>
-          <textarea name="notes" rows="3" placeholder="—"></textarea>
-
-          <h2 style="margin-top:2rem" data-en="Your Documents *" data-es="Tus Documentos *">Tus Documentos *</h2>
-          <p class="sd-intro" data-en="Upload photos of your ID, W-2, 1099, or any other documents. Accepted: PDF, JPG, PNG, HEIC. Max 10 MB per file." data-es="Sube fotos de tu ID, W-2, 1099, o cualquier otro documento. Aceptamos: PDF, JPG, PNG, HEIC. Máximo 10 MB por archivo.">Sube fotos de tu ID, W-2, 1099, o cualquier otro documento. Aceptamos: PDF, JPG, PNG, HEIC. Máximo 10 MB por archivo.</p>
-
-          <div id="fileDropzone" class="upload-dropzone">
-            <input type="file" id="fileInput" multiple accept="image/*,application/pdf,.heic" hidden>
-            <div class="upload-dropzone-inner">
-              <div class="upload-icon">📁</div>
-              <p class="upload-main" data-en="Tap to select files" data-es="Toca para seleccionar archivos">Toca para seleccionar archivos</p>
-              <p class="upload-sub" data-en="or drag & drop here" data-es="o arrastra y suelta aquí">o arrastra y suelta aquí</p>
-            </div>
-          </div>
-
-          <div id="fileList" class="upload-file-list"></div>
-
-          <button type="submit" class="btn btn-gold" style="margin-top:1.5rem" data-en="📤 Send to Angela" data-es="📤 Enviar a Angela">📤 Enviar a Angela</button>
-        </form>
-
-        <div id="uploadProgress" class="upload-progress" style="display:none">
-          <div class="upload-progress-bar"><div id="uploadProgressFill" class="upload-progress-fill"></div></div>
-          <p id="uploadProgressText">—</p>
+        <div style="margin-top:2rem;display:flex;flex-direction:column;gap:1rem;align-items:center;">
+          <a href="https://wa.me/12819357568" class="btn btn-gold" target="_blank" rel="noopener">
+            <span data-en="📱 WhatsApp Angela" data-es="📱 WhatsApp a Angela">📱 WhatsApp a Angela</span>
+          </a>
+          <a href="mailto:angela@clavepros.com" class="btn btn-outline">
+            <span data-en="✉️ Email angela@clavepros.com" data-es="✉️ Correo a angela@clavepros.com">✉️ Correo a angela@clavepros.com</span>
+          </a>
+          <a href="contact.html" class="btn btn-outline">
+            <span data-en="📞 Contact page" data-es="📞 Página de contacto">📞 Página de contacto</span>
+          </a>
         </div>
 
-        <div id="uploadSuccess" class="form-success" style="display:none">
-          <h3 data-en="✓ Documents received!" data-es="✓ ¡Documentos recibidos!">✓ ¡Documentos recibidos!</h3>
-          <p data-en="Angela has been notified and will contact you within 24 hours. Thank you!" data-es="Angela ha sido notificada y se pondrá en contacto contigo en menos de 24 horas. ¡Gracias!">Angela ha sido notificada y se pondrá en contacto contigo en menos de 24 horas. ¡Gracias!</p>
-        </div>
+        <p style="margin-top:2rem;font-size:0.9rem;color:#888;" data-en="Thank you for your patience. The secure upload will be back online soon." data-es="Gracias por tu paciencia. La subida segura volverá pronto.">
+          Gracias por tu paciencia. La subida segura volverá pronto.
+        </p>
       </div>
     </div>
   </section>
@@ -127,194 +91,5 @@
   </a>
 
   <script src="main.js"></script>
-  <script>
-    (function () {
-      var CLOUDINARY_CLOUD = 'dbgfhzzkl';
-      var CLOUDINARY_PRESET = 'clavepro_uploads';
-      var AIRTABLE_BASE  = 'appZpPihAI3InXMdx';
-      var AIRTABLE_TABLE = 'tbl1TjdsA3JgCAfdl';
-      var AIRTABLE_TOKEN = 'patnswTAVvjglK3b8.511e3c35ea5640400933c2b00eb454429724ad480c293a60cd91bca9f77df1d7';
-
-      var fileInput = document.getElementById('fileInput');
-      var dropzone = document.getElementById('fileDropzone');
-      var fileList = document.getElementById('fileList');
-      var form = document.getElementById('uploadForm');
-      var progress = document.getElementById('uploadProgress');
-      var progressFill = document.getElementById('uploadProgressFill');
-      var progressText = document.getElementById('uploadProgressText');
-      var success = document.getElementById('uploadSuccess');
-
-      var selectedFiles = [];
-
-      dropzone.addEventListener('click', function () { fileInput.click(); });
-      dropzone.addEventListener('dragover', function (e) {
-        e.preventDefault();
-        dropzone.classList.add('dragging');
-      });
-      dropzone.addEventListener('dragleave', function () { dropzone.classList.remove('dragging'); });
-      dropzone.addEventListener('drop', function (e) {
-        e.preventDefault();
-        dropzone.classList.remove('dragging');
-        addFiles(e.dataTransfer.files);
-      });
-      fileInput.addEventListener('change', function () { addFiles(fileInput.files); });
-
-      function addFiles(files) {
-        for (var i = 0; i < files.length; i++) {
-          var f = files[i];
-          if (f.size > 10 * 1024 * 1024) {
-            alert((document.documentElement.lang === 'en' ? 'File too large: ' : 'Archivo muy grande: ') + f.name + ' (max 10 MB)');
-            continue;
-          }
-          selectedFiles.push(f);
-        }
-        renderFileList();
-      }
-
-      function renderFileList() {
-        fileList.innerHTML = '';
-        selectedFiles.forEach(function (f, idx) {
-          var item = document.createElement('div');
-          item.className = 'upload-file-item';
-          item.innerHTML = '<span class="upload-file-name">📄 ' + escapeHtml(f.name) + '</span>' +
-            '<span class="upload-file-size">' + formatBytes(f.size) + '</span>' +
-            '<button type="button" class="upload-file-remove" data-idx="' + idx + '">✕</button>';
-          fileList.appendChild(item);
-        });
-        fileList.querySelectorAll('.upload-file-remove').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            var i = parseInt(btn.getAttribute('data-idx'), 10);
-            selectedFiles.splice(i, 1);
-            renderFileList();
-          });
-        });
-      }
-
-      function escapeHtml(s) {
-        return s.replace(/[&<>"']/g, function (c) {
-          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-        });
-      }
-
-      function formatBytes(bytes) {
-        if (bytes < 1024) return bytes + ' B';
-        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-        return (bytes / 1024 / 1024).toFixed(1) + ' MB';
-      }
-
-      function uploadToCloudinary(file) {
-        var fd = new FormData();
-        fd.append('file', file);
-        fd.append('upload_preset', CLOUDINARY_PRESET);
-        return fetch('https://api.cloudinary.com/v1_1/' + CLOUDINARY_CLOUD + '/auto/upload', {
-          method: 'POST',
-          body: fd
-        }).then(function (r) {
-          if (!r.ok) throw new Error('Cloudinary ' + r.status);
-          return r.json();
-        });
-      }
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var lang = document.documentElement.lang || 'es';
-
-        if (selectedFiles.length === 0) {
-          alert(lang === 'en' ? 'Please select at least one file.' : 'Por favor selecciona al menos un archivo.');
-          return;
-        }
-
-        var name = form.querySelector('[name=name]').value.trim();
-        var email = form.querySelector('[name=email]').value.trim();
-        var phone = form.querySelector('[name=phone]').value.trim();
-        var service = form.querySelector('[name=service]').value;
-        var notes = form.querySelector('[name=notes]').value.trim();
-
-        form.style.display = 'none';
-        progress.style.display = 'block';
-        progressText.textContent = lang === 'en' ? 'Uploading files...' : 'Subiendo archivos...';
-        progressFill.style.width = '5%';
-
-        var uploaded = [];
-        var total = selectedFiles.length;
-        var done = 0;
-
-        function next() {
-          if (done === total) return finishUpload();
-          var file = selectedFiles[done];
-          progressText.textContent = (lang === 'en' ? 'Uploading ' : 'Subiendo ') + (done + 1) + '/' + total + ': ' + file.name;
-          uploadToCloudinary(file)
-            .then(function (result) {
-              uploaded.push({ url: result.secure_url, filename: file.name });
-              done++;
-              progressFill.style.width = (10 + (done / total) * 80) + '%';
-              next();
-            })
-            .catch(function (err) {
-              console.error('Upload error:', err);
-              alert((lang === 'en' ? 'Upload failed: ' : 'Error al subir: ') + file.name);
-              form.style.display = 'block';
-              progress.style.display = 'none';
-            });
-        }
-
-        function finishUpload() {
-          progressText.textContent = lang === 'en' ? 'Saving to Clave Pro...' : 'Guardando en Clave Pro...';
-          progressFill.style.width = '95%';
-
-          var payload = {
-            records: [{
-              fields: {
-                'Name': name,
-                'E-mail': email,
-                'Phone': phone,
-                'Type of Service': [service],
-                'Status': 'New',
-                'Notes': 'UPLOADED DOCUMENTS (' + uploaded.length + '):\n' +
-                  uploaded.map(function (u) { return '• ' + u.filename + '\n  ' + u.url; }).join('\n') +
-                  (notes ? '\n\n--- CLIENT NOTES ---\n' + notes : ''),
-                'Attachments': uploaded.map(function (u) { return { url: u.url, filename: u.filename }; })
-              }
-            }]
-          };
-
-          fetch('https://api.airtable.com/v0/' + AIRTABLE_BASE + '/' + AIRTABLE_TABLE, {
-            method: 'POST',
-            headers: { 'Authorization': 'Bearer ' + AIRTABLE_TOKEN, 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          })
-          .then(function (r) { if (!r.ok) throw new Error('Airtable ' + r.status); return r.json(); })
-          .then(function () {
-            progressFill.style.width = '100%';
-            setTimeout(function () {
-              progress.style.display = 'none';
-              success.style.display = 'block';
-              success.scrollIntoView({ behavior: 'smooth' });
-
-              // WhatsApp notification to Angela
-              var waMsg = 'New documents uploaded!\n\n'
-                + 'Name: ' + name + '\nEmail: ' + email + '\n'
-                + (phone ? 'Phone: ' + phone + '\n' : '')
-                + 'Service: ' + service + '\n'
-                + 'Files (' + uploaded.length + '):\n'
-                + uploaded.map(function (u) { return '• ' + u.filename; }).join('\n')
-                + (notes ? '\n\nNotes: ' + notes : '');
-              window.open('https://wa.me/12819357568?text=' + encodeURIComponent(waMsg), '_blank');
-            }, 500);
-          })
-          .catch(function (err) {
-            console.error('Airtable error:', err);
-            alert(lang === 'en'
-              ? 'Files uploaded but could not save to Clave Pro. Please contact Angela directly.'
-              : 'Archivos subidos pero no se pudieron guardar en Clave Pro. Por favor contacta a Angela directamente.');
-            form.style.display = 'block';
-            progress.style.display = 'none';
-          });
-        }
-
-        next();
-      });
-    })();
-  </script>
 </body>
 </html>

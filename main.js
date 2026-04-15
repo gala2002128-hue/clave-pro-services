@@ -354,10 +354,8 @@
   var EMAILJS_SERVICE_ID = 'service_clavepro';
   var EMAILJS_TEMPLATE_ID = 'template_i2sf26j';
 
-  /* ---------- Contact Form → Airtable + EmailJS ---------- */
-  var AIRTABLE_BASE  = 'appZpPihAI3InXMdx';
-  var AIRTABLE_TABLE = 'tbl1TjdsA3JgCAfdl';
-  var AIRTABLE_TOKEN = 'patnswTAVvjglK3b8.511e3c35ea5640400933c2b00eb454429724ad480c293a60cd91bca9f77df1d7';
+  /* ---------- Contact Form → EmailJS + WhatsApp ---------- */
+  // Airtable integration temporarily disabled while backend proxy is built.
 
   function initContactForm() {
     var form = document.getElementById('contactForm');
@@ -418,75 +416,39 @@
       submitBtn.disabled = true;
       submitBtn.textContent = lang === 'en' ? 'Sending...' : 'Enviando...';
 
-      var fields = {
-        'Name': name,
-        'E-mail': email,
-        'Phone': phone,
-        'Type of Service': serviceTexts,
-        'Status': 'New'
-      };
-
-      if (message) {
-        fields['Notes'] = message;
-      }
-
-      var payload = { records: [{ fields: fields }] };
-
-      // 1. Save to Airtable
-      fetch('https://api.airtable.com/v0/' + AIRTABLE_BASE + '/' + AIRTABLE_TABLE, {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bearer ' + AIRTABLE_TOKEN,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(function (res) {
-        if (!res.ok) throw new Error('Airtable error: ' + res.status);
-        return res.json();
-      })
-      .then(function () {
-        // 2. Send auto-reply email via EmailJS
-        if (typeof emailjs !== 'undefined') {
-          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      // Send auto-reply email via EmailJS (Airtable call removed for security)
+      var emailPromise = (typeof emailjs !== 'undefined')
+        ? emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
             from_name: name,
             email: email,
             service: serviceText,
             checklist: serviceValues.map(buildEmailChecklist).join('')
-          }).catch(function (err) {
-            console.error('EmailJS error:', err);
-          });
-        }
+          })
+        : Promise.resolve();
 
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = lang === 'en' ? 'Send Message' : 'Enviar Mensaje';
+      emailPromise
+        .catch(function (err) { console.error('EmailJS error:', err); })
+        .then(function () {
+          form.reset();
+          submitBtn.disabled = false;
+          submitBtn.textContent = lang === 'en' ? 'Send Message' : 'Enviar Mensaje';
 
-        // Show success message on page
-        var successDiv = document.getElementById('formSuccess');
-        if (successDiv) {
-          successDiv.style.display = 'block';
-          successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+          var successDiv = document.getElementById('formSuccess');
+          if (successDiv) {
+            successDiv.style.display = 'block';
+            successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
 
-        // 3. Send WhatsApp notification to Angela
-        var waMsg = 'New lead from clavepros.com\n\n'
-          + 'Name: ' + name + '\n'
-          + 'Email: ' + email + '\n'
-          + (phone ? 'Phone: ' + phone + '\n' : '')
-          + 'Service: ' + serviceText + '\n'
-          + (message ? '\nMessage: ' + message : '');
-        var waURL = 'https://wa.me/12819357568?text=' + encodeURIComponent(waMsg);
-        window.open(waURL, '_blank');
-      })
-      .catch(function (err) {
-        console.error(err);
-        submitBtn.disabled = false;
-        submitBtn.textContent = lang === 'en' ? 'Send Message' : 'Enviar Mensaje';
-        alert(lang === 'en'
-          ? 'Something went wrong. Please try again or contact us via WhatsApp.'
-          : 'Algo salió mal. Inténtalo de nuevo o contáctanos por WhatsApp.');
-      });
+          // Send WhatsApp notification to Angela so leads are not lost
+          var waMsg = 'New lead from clavepros.com\n\n'
+            + 'Name: ' + name + '\n'
+            + 'Email: ' + email + '\n'
+            + (phone ? 'Phone: ' + phone + '\n' : '')
+            + 'Service: ' + serviceText + '\n'
+            + (message ? '\nMessage: ' + message : '');
+          var waURL = 'https://wa.me/12819357568?text=' + encodeURIComponent(waMsg);
+          window.open(waURL, '_blank');
+        });
     });
   }
 
@@ -937,64 +899,37 @@
       if (sub) serviceAirtable = sub.airtableValue;
     }
 
-    var payload = {
-      records: [{
-        fields: {
-          'Name': name,
-          'E-mail': email,
-          'Phone': phone,
-          'Type of Service': [serviceAirtable],
-          'Status': 'New',
-          'Notes': notes
-        }
-      }]
-    };
-
-    fetch('https://api.airtable.com/v0/' + AIRTABLE_BASE + '/' + AIRTABLE_TABLE, {
-      method: 'POST',
-      headers: { 'Authorization': 'Bearer ' + AIRTABLE_TOKEN, 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function (res) { if (!res.ok) throw new Error('Airtable ' + res.status); return res.json(); })
-    .then(function () {
-      // Send conditional auto-reply email
-      if (typeof emailjs !== 'undefined') {
-        var checklistHtml = buildConditionalChecklistHtml(cfg, cl, lang);
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    // Airtable write removed for security. Lead is delivered via EmailJS + WhatsApp.
+    var emailPromise = (typeof emailjs !== 'undefined')
+      ? emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           from_name: name,
           email: email,
           service: cfg.title[lang] || cfg.title.en,
-          checklist: checklistHtml
-        }).catch(function (err) { console.error('EmailJS error:', err); });
-      }
+          checklist: buildConditionalChecklistHtml(cfg, cl, lang)
+        })
+      : Promise.resolve();
 
-      contactForm.reset();
-      submitBtn.disabled = false;
-      submitBtn.textContent = lang === 'en' ? 'Request Quote →' : 'Pedir Cotización →';
+    emailPromise
+      .catch(function (err) { console.error('EmailJS error:', err); })
+      .then(function () {
+        contactForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = lang === 'en' ? 'Request Quote →' : 'Pedir Cotización →';
 
-      var success = document.getElementById('sdFormSuccess');
-      var msg = buildSuccessMessage(cl, lang);
-      success.innerHTML = msg;
-      success.style.display = 'block';
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var success = document.getElementById('sdFormSuccess');
+        var msg = buildSuccessMessage(cl, lang);
+        success.innerHTML = msg;
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      // WhatsApp notification to Angela
-      var waMsg = 'New lead from ' + (cfg.title.en) + '\n\n'
-        + 'Name: ' + name + '\nEmail: ' + email + '\n'
-        + (phone ? 'Phone: ' + phone + '\n' : '')
-        + 'Has: ' + cl.have.length + '/' + (cl.have.length + cl.missing.length) + ' items\n'
-        + (cl.weCanHelp.length ? 'Needs help with: ' + cl.weCanHelp.map(function (i) { return i.en; }).join(', ') + '\n' : '')
-        + (message ? '\nNotes: ' + message : '');
-      window.open('https://wa.me/12819357568?text=' + encodeURIComponent(waMsg), '_blank');
-    })
-    .catch(function (err) {
-      console.error(err);
-      submitBtn.disabled = false;
-      submitBtn.textContent = lang === 'en' ? 'Request Quote →' : 'Pedir Cotización →';
-      alert(lang === 'en'
-        ? 'Something went wrong. Please try again or contact us via WhatsApp.'
-        : 'Algo salió mal. Inténtalo de nuevo o contáctanos por WhatsApp.');
-    });
+        var waMsg = 'New lead from ' + (cfg.title.en) + '\n\n'
+          + 'Name: ' + name + '\nEmail: ' + email + '\n'
+          + (phone ? 'Phone: ' + phone + '\n' : '')
+          + 'Has: ' + cl.have.length + '/' + (cl.have.length + cl.missing.length) + ' items\n'
+          + (cl.weCanHelp.length ? 'Needs help with: ' + cl.weCanHelp.map(function (i) { return i.en; }).join(', ') + '\n' : '')
+          + (message ? '\nNotes: ' + message : '');
+        window.open('https://wa.me/12819357568?text=' + encodeURIComponent(waMsg), '_blank');
+      });
   }
 
   function buildSuccessMessage(cl, lang) {
