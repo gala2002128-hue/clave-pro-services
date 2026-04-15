@@ -599,7 +599,7 @@
     'lis-medicare': {
       icon: '🏥',
       title: L('LIS / Medicare Extra Help', 'LIS / Ayuda Extra de Medicare'),
-      description: L("Low Income Subsidy (Extra Help) can save Medicare beneficiaries thousands annually on prescription costs. We help you apply.", "El Subsidio de Bajos Ingresos (Extra Help) puede ahorrar miles de dólares al año en medicamentos. Te ayudamos a aplicar."),
+      description: L("We help Medicare beneficiaries apply for the Low Income Subsidy (Extra Help) program. Eligibility and benefits are determined solely by the government; we do not guarantee approval or any specific outcome.", "Ayudamos a beneficiarios de Medicare a solicitar el programa de Subsidio de Bajos Ingresos (Extra Help). La elegibilidad y los beneficios son determinados únicamente por el gobierno; no garantizamos aprobación ni ningún resultado específico."),
       priceLabel: L('Contact us for assistance', 'Contáctenos para asistencia'),
       airtableValue: 'LIS/Medicare Extra Help',
       checklist: [
