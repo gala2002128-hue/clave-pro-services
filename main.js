@@ -600,7 +600,7 @@
       icon: '🏥',
       title: L('LIS / Medicare Extra Help', 'LIS / Ayuda Extra de Medicare'),
       description: L("Low Income Subsidy (Extra Help) can save Medicare beneficiaries thousands annually on prescription costs. We help you apply.", "El Subsidio de Bajos Ingresos (Extra Help) puede ahorrar miles de dólares al año en medicamentos. Te ayudamos a aplicar."),
-      priceLabel: L('From $50', 'Desde $50'),
+      priceLabel: L('Contact us for assistance', 'Contáctenos para asistencia'),
       airtableValue: 'LIS/Medicare Extra Help',
       checklist: [
         CL('Medicare card (red, white and blue)', 'Tarjeta de Medicare (roja, blanca y azul)', false),
@@ -615,7 +615,7 @@
       icon: '🤝',
       title: L('Your Texas Benefits (SNAP / Medicaid / CHIP)', 'Your Texas Benefits (SNAP / Medicaid / CHIP)'),
       description: L("We assist you with applications for Texas government benefit programs: food assistance, health coverage, and children's insurance.", 'Te asistimos con solicitudes de programas de beneficios del gobierno de Texas: asistencia alimentaria, cobertura de salud y seguro para niños.'),
-      priceLabel: L('From $50', 'Desde $50'),
+      priceLabel: L('Consultation fee may apply', 'Puede aplicar tarifa de consulta'),
       airtableValue: 'Your Texas Benefits (SNAP, Medicaid, CHIP)',
       checklist: [
         CL('Valid photo ID for all adults in household', 'ID con foto de todos los adultos del hogar', false),
